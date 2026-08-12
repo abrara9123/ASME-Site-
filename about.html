@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About &amp; Join — UIC ASME</title>
+<meta name="description" content="Learn about the UIC ASME chapter mission and how to join.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">A</span>
+      <span>UIC ASME<small>Est. Mechanical Eng. Dept.</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="about.html#join" class="btn btn-primary btn-sm">Join Chapter</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero blueprint-bg">
+  <div class="container hero-grid">
+    <div class="reveal in">
+      <div class="eyebrow">Our mission</div>
+      <h1>Engineers who show up for each other.</h1>
+      <p class="lead">UIC ASME exists to connect mechanical engineering students with the skills, people, and opportunities that a classroom alone can't provide — and to make a large campus feel a little smaller.</p>
+      <div class="hero-cta">
+        <a href="#join" class="btn btn-primary">Join the chapter</a>
+        <a href="events.html" class="btn btn-ghost">See what we run</a>
+      </div>
+    </div>
+    <div class="hero-media crop-marks reveal in">
+      <span class="cm-tr"></span><span class="cm-br"></span>
+      <img src="assets/img/event-group2.jpg" alt="UIC ASME members at a chapter event">
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Sec. 01 — History</div>
+        <h2>A chapter built by students, for students.</h2>
+      </div>
+      <p>Chartered through UIC's Department of Mechanical &amp; Industrial Engineering as the local section of the national ASME society.</p>
+    </div>
+    <div class="grid grid-3 reveal-stagger reveal">
+      <div class="card info-card">
+        <div class="num">Founded</div>
+        <h3>A student-run charter</h3>
+        <p>Run entirely by an elected e-board, with faculty advisors supporting from the department each semester.</p>
+      </div>
+      <div class="card info-card">
+        <div class="num">Affiliation</div>
+        <h3>Part of national ASME</h3>
+        <p>Members get access to ASME's national resources, conferences, and career network alongside chapter events.</p>
+      </div>
+      <div class="card info-card">
+        <div class="num">Open to</div>
+        <h3>Every major, every year</h3>
+        <p>Most active members study mechanical or industrial engineering, but the chapter is open campus-wide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blueprint-bg" id="join">
+  <div class="container" style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;">
+    <div class="reveal in">
+      <div class="eyebrow">Sec. 02 — Membership</div>
+      <h2 style="margin-top:14px; font-size:clamp(26px,3.2vw,36px);">Join the chapter</h2>
+      <p style="color:var(--text-muted); margin-top:16px; font-size:15.5px;">Fill out the form and we'll add you to the chapter mailing list — dues and committee sign-ups happen at your first general body meeting.</p>
+      <ul style="margin-top:28px; display:flex; flex-direction:column; gap:14px;">
+        <li style="display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--text-muted);"><span class="badge" style="flex:none;">01</span> Open to all UIC students, any major, any year.</li>
+        <li style="display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--text-muted);"><span class="badge" style="flex:none;">02</span> First meeting is free — no commitment required.</li>
+        <li style="display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--text-muted);"><span class="badge" style="flex:none;">03</span> Semester dues cover socials, workshop materials, and swag.</li>
+      </ul>
+    </div>
+
+    <form class="card reveal in" style="padding:32px 28px; display:flex; flex-direction:column; gap:16px;" onsubmit="event.preventDefault(); this.querySelector('.form-success').style.display='block'; this.querySelectorAll('input,button').forEach(el=>el.disabled=true);">
+      <div>
+        <label style="font-family:var(--font-mono); font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-faint);">Full name</label>
+        <input required type="text" placeholder="Jordan Lee" style="width:100%; margin-top:8px; background:var(--surface-2); border:1px solid var(--border-strong); color:var(--text); padding:12px 14px; border-radius:8px; font-size:14.5px;">
+      </div>
+      <div>
+        <label style="font-family:var(--font-mono); font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-faint);">UIC email</label>
+        <input required type="email" placeholder="jlee@uic.edu" style="width:100%; margin-top:8px; background:var(--surface-2); border:1px solid var(--border-strong); color:var(--text); padding:12px 14px; border-radius:8px; font-size:14.5px;">
+      </div>
+      <div>
+        <label style="font-family:var(--font-mono); font-size:11.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--text-faint);">Major &amp; year</label>
+        <input required type="text" placeholder="Mechanical Engineering, '28" style="width:100%; margin-top:8px; background:var(--surface-2); border:1px solid var(--border-strong); color:var(--text); padding:12px 14px; border-radius:8px; font-size:14.5px;">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block" style="margin-top:8px;">Sign up</button>
+      <p class="form-success" style="display:none; color:#3ddc84; font-size:13.5px; text-align:center;">You're on the list — check your UIC email for next steps.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-bottom" style="margin-top:0; border-top:none; padding-top:0;">
+      <span>© 2026 UIC ASME Student Chapter</span>
+      <span>Design reference: ASME_Website.fig</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
