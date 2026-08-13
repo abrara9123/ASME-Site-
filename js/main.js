@@ -91,19 +91,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---- Project team tabs (home page) ---- */
-  const teamTabs = document.querySelectorAll('.team-tab');
-  if (teamTabs.length) {
-    teamTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        teamTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        document.querySelectorAll('.team-panel').forEach(p => p.classList.remove('active'));
-        const panel = document.getElementById(tab.dataset.team);
-        if (panel) panel.classList.add('active');
+  /* ---- Project team tabs (home page)(Has Sliders) ---- */
+const teamTabs = document.querySelectorAll('.team-tab');
+const teamPanels = document.querySelectorAll('.team-panel');
+const teamTrack = document.querySelector('.teams-track');
+if (teamTabs.length && teamPanels.length && teamTrack) {
+  teamTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const selectedTeam = tab.dataset.team;
+      let selectedIndex = 0;
+      teamPanels.forEach((panel, index) => {
+        if (panel.id === selectedTeam) {
+          selectedIndex = index;
+        }
       });
+      teamTrack.style.transform =
+        `translateX(-${selectedIndex * 100}%)`;
+      teamTabs.forEach(button => {
+        button.classList.remove('active');
+      });
+      tab.classList.add('active');
     });
-  }
+  });
+}
 
   /* ---- Animated stat counters (home page) ---- */
   const statEls = document.querySelectorAll('.stat[data-count]');

@@ -462,10 +462,11 @@ body{ animation: page-in .5s var(--ease); }
 }
 .team-tab:hover{ color:var(--text); border-color: rgba(255,255,255,0.35); }
 .team-tab.active{ background: var(--accent); border-color: var(--accent); color:#fff; }
-
-.team-panel{ display:none; }
-.team-panel.active{
-  display:grid;
+.team-panel{
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
   grid-template-columns: 1fr 1.05fr;
   gap: 36px;
   align-items: center;
@@ -499,6 +500,16 @@ body{ animation: page-in .5s var(--ease); }
   aspect-ratio: 4 / 3;
 }
 .team-panel .img-side img{ width:100%; height:100%; object-fit:cover; object-position: 20% 50%; display:block; }
+.teams-viewport{
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.teams-track{
+  display: flex;
+  width: 100%;
+  transition: transform 0.55s ease;
+}
 
 /* Calendar */
 .calendar-section{
@@ -522,6 +533,14 @@ body{ animation: page-in .5s var(--ease); }
   font-family: var(--font-body);
   font-size: 14.5px;
   background: transparent;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.calendar-box iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
 }
 
 /* Footer v2 — matches mockup */
