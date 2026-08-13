@@ -6,6 +6,7 @@
 <title>ASME @ UIC — Stop Being a Textbook Engineer</title>
 <meta name="description" content="Connecting UIC engineering students with industry, research, and each other through events, competitions, and community.">
 <link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/logo/asme-classic.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -22,8 +23,7 @@
   <nav class="site-nav">
     <div class="container">
       <a href="index.html" class="brand">
-        <span class="brand-globe"></span>
-        <span class="brand-word">ASME<small>Setting the standard</small></span>
+        <img class="brand-logo" src="assets/logo/asme-classic.svg" alt="ASME">
       </a>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
@@ -58,14 +58,14 @@
     </div>
   </div>
 
-  <div class="container logo-row reveal in">
+  <div class="container logo-row reveal in" id="sponsors">
     <div class="cap">Industry Connections</div>
     <div class="logos">
-      <span>GE&nbsp;Vernova</span>
-      <span>IUOE&nbsp;150</span>
-      <span>NASA</span>
-      <span>BNSF&nbsp;Railway</span>
-      <span>Milwaukee&nbsp;Tool</span>
+      <img src="assets/logo/ge.png" alt="GE Vernova">
+      <img src="assets/logo/iuoe.png" alt="IUOE International">
+      <img src="assets/logo/nasa.png" alt="NASA">
+      <img src="assets/logo/bnsf.png" alt="BNSF Railway">
+      <img src="assets/logo/milwaukee.png" alt="Milwaukee Tool">
     </div>
   </div>
 </header>
@@ -74,7 +74,7 @@
 <section id="about">
   <div class="container">
     <div class="section-head reveal" style="justify-content:center; text-align:center; flex-direction:column; align-items:center;">
-      <h2>Why Join <span style="color:var(--accent-bright);">ASME @ UIC</span></h2>
+      <h2>Why Join <span>ASME @ UIC</span></h2>
       <p>Being part of ASME @ UIC pays off in three ways: on your resume, in your skill set, and in your network.</p>
     </div>
     <div class="grid grid-3 reveal-stagger reveal">
@@ -107,8 +107,8 @@
 <section>
   <div class="container">
     <div class="section-head reveal" style="justify-content:center; text-align:center; flex-direction:column; align-items:center;">
-      <h2>What We <span style="color:var(--accent-bright);">Do</span></h2>
-      <p>Four way to get involved. Pick the level that works for you.</p>
+      <h2>What We <span>Do</span></h2>
+      <p>Four ways to get involved. Pick the level that works for you.</p>
     </div>
     <div class="grid grid-2 reveal-stagger reveal">
       <a href="events.html" class="wwd-card">
@@ -129,7 +129,7 @@
         <img src="assets/img/event-extra4.jpg" alt="Project team build night">
         <div class="txt">
           <h3>Project Teams</h3>
-          <p>Get hands on with real builds across our 5 project teams, from first sketch to competition day.</p>
+          <p>Get hands-on with real builds across our 5 project teams, from first sketch to competition day.</p>
         </div>
       </a>
       <a href="events.html" class="wwd-card">
@@ -140,17 +140,17 @@
         </div>
       </a>
     </div>
-    <div class="center reveal" style="margin-top:44px;">
+    <div class="center reveal" style="margin-top:24px;">
       <a href="events.html" class="btn btn-primary">See Events →</a>
     </div>
   </div>
 </section>
 
 <!-- PROJECT TEAMS -->
-<section>
+<section class="teams-section">
   <div class="container">
     <div class="section-head reveal" style="justify-content:center; text-align:center; flex-direction:column; align-items:center;">
-      <h2>Our <span style="color:var(--accent-bright);">Project Teams</span></h2>
+      <h2>Our <span>Project Teams</span></h2>
       <p>5 teams, 5 ways to build something real.</p>
     </div>
 
@@ -168,7 +168,7 @@
           <h3>Early-stage prototypes and experimentation.</h3>
           <p>R&amp;D Team is an innovation-focused group dedicated to exploring new engineering concepts, testing emerging technologies, and developing early-stage prototypes. Members collaborate on experimental projects, validate ideas through research and hands-on testing, and turn creative concepts into practical engineering solutions that can grow into future ASME initiatives.</p>
         </div>
-        <div class="img-side"><img src="assets/img/event-extra4.jpg" alt="R&D team workbench with prototype build"></div>
+        <div class="img-side"><img src="assets/img/event-extra4.jpg" alt="R&amp;D team workbench with prototype build"></div>
       </div>
 
       <div id="team-ehpvc" class="team-panel">
@@ -204,25 +204,23 @@
       </div>
     </div>
 
-    <div class="center reveal" style="margin-top:40px;">
+    <div class="center reveal" style="margin-top:24px;">
       <a href="about.html#join" class="btn btn-primary">Join ASME →</a>
     </div>
   </div>
 </section>
 
 <!-- CALENDAR -->
-<section id="events-preview">
+<section class="calendar-section" id="events-preview">
   <div class="container">
     <div class="section-head reveal" style="justify-content:center; text-align:center; flex-direction:column; align-items:center;">
-      <h2>Don't Miss <span style="color:var(--accent-bright);">What's Next</span></h2>
+      <h2>Don't Miss <span>What's Next</span></h2>
       <p>Every meeting, workshop, and event, all in one place.</p>
     </div>
     <div class="reveal">
-      <!-- Swap this placeholder for a real Google Calendar embed:
-      <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID" style="border:0" width="100%" height="340" frameborder="0"></iframe> -->
       <div class="calendar-box">google calendar embed</div>
     </div>
-    <div class="center reveal" style="margin-top:36px;">
+    <div class="center reveal" style="margin-top:24px;">
       <a href="events.html" class="btn btn-primary">See Events →</a>
     </div>
   </div>
@@ -232,25 +230,38 @@
   <div class="container">
     <div class="top">
       <div class="brand-col reveal in">
-        <a href="index.html" class="brand">
-          <span class="brand-globe"></span>
-          <span class="brand-word">ASME<small>Setting the standard</small></span>
+        <a href="index.html" class="footer-logo">
+          <img src="assets/logo/asme-classic.svg" alt="ASME — Setting the Standard">
         </a>
         <p>Connecting UIC engineering students with projects, industry, and each other.</p>
         <div class="socials">
-          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 17v-7"/></svg></a>
-          <a href="#" aria-label="Discord"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 9c3-1 5-1 8 0M7 15c3 1 7 1 10 0M9 12h.01M15 12h.01"/><path d="M6 7.5C8 6.5 16 6.5 18 7.5c1.4 2 2 6 1.5 9-2 1.5-3 2-3 2l-.8-1.5M6 7.5C4.6 9.5 4 13.5 4.5 16.5c2 1.5 3 2 3 2l.8-1.5"/></svg></a>
+          <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S.02 4.88.02 3.5 1.14 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.5h4.56V24H.22V8.5zM8.34 8.5h4.37v2.12h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7V24h-4.56v-6.84c0-1.63-.03-3.73-2.27-3.73-2.28 0-2.63 1.78-2.63 3.61V24H8.34V8.5z"/></svg>
+          </a>
+          <a href="https://discord.com/" aria-label="Discord" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.32 4.37A19.8 19.8 0 0 0 15.89 2.9l-.2.36c1.72.53 2.67 1.14 3.56 1.96-1.51-.77-3.02-1.2-4.56-1.2h-.04c-1.54 0-3.05.43-4.56 1.2.89-.82 1.9-1.46 3.56-1.96l-.2-.36A19.8 19.8 0 0 0 3.68 4.37C1.76 7.26.8 10.07.33 12.84c1.9 1.42 3.75 2.29 5.56 2.86l.72-1.14c-1.2-.45-2.3-1.03-3.28-1.74.9.64 3.2 1.92 8.67 1.92s7.77-1.28 8.67-1.92c-.98.71-2.08 1.29-3.28 1.74l.72 1.14c1.81-.57 3.66-1.44 5.56-2.86-.47-2.77-1.43-5.58-3.35-8.47zM8.68 13.1c-.9 0-1.64-.83-1.64-1.85s.73-1.85 1.64-1.85 1.65.83 1.65 1.85-.74 1.85-1.65 1.85zm6.64 0c-.9 0-1.64-.83-1.64-1.85s.73-1.85 1.64-1.85 1.65.83 1.65 1.85-.74 1.85-1.65 1.85z"/></svg>
+          </a>
         </div>
       </div>
       <div class="cols reveal in">
         <div>
           <h5>Navigation</h5>
-          <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="#sponsors">Sponsors</a></li></ul>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#sponsors">Sponsors</a></li>
+          </ul>
         </div>
         <div>
           <h5>Get Involved</h5>
-          <ul><li><a href="team.html">Board</a></li><li><a href="events.html">Events</a></li><li><a href="#legacy">Legacy</a></li></ul>
+          <ul>
+            <li><a href="team.html">Board</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="#legacy">Legacy</a></li>
+          </ul>
         </div>
         <div>
           <h5>Contact</h5>

@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('.site-nav');
   if (nav) {
     const onScroll = () => {
-      if (window.scrollY > 12) nav.style.background = 'rgba(10,12,15,0.9)';
-      else nav.style.background = 'rgba(10,12,15,0.72)';
+      const inHero = nav.closest('.hero-v2');
+      if (window.scrollY > 12) nav.style.background = 'rgba(17,17,19,0.92)';
+      else nav.style.background = inHero ? 'transparent' : 'rgba(17,17,19,0.72)';
     };
     document.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
