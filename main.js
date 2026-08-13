@@ -90,6 +90,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- Project team tabs (home page) ---- */
+  const teamTabs = document.querySelectorAll('.team-tab');
+  if (teamTabs.length) {
+    teamTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        teamTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.team-panel').forEach(p => p.classList.remove('active'));
+        const panel = document.getElementById(tab.dataset.team);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  }
+
+  /* ---- Animated stat counters (home page) ---- */
+  const statEls = document.querySelectorAll('.stat[data-count]');
+  if (statEls.length && 'IntersectionObserver' in window) {
+    const animateStat = (el) => {
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const numEl = el.querySelector('b');
+      const duration = 1100;
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        numEl.textContent = Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const statIo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateStat(entry.target);
+          statIo.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    statEls.forEach(el => statIo.observe(el));
+  }
+
   /* ---- Lightbox (gallery page) ---- */
   const lightbox = document.querySelector('.lightbox');
   if (lightbox) {
