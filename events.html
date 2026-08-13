@@ -3,167 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Events — UIC ASME</title>
-<meta name="description" content="Workshops, industry nights, and socials hosted by the UIC ASME student chapter.">
+<title>Events — ASME @ UIC</title>
+<meta name="description" content="Everything on the ASME @ UIC schedule — meetings, workshops, industry nights, competitions, and socials.">
 <link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/logo/asme-classic.svg" type="image/svg+xml">
 </head>
 <body>
 
 <nav class="site-nav">
   <div class="container">
     <a href="index.html" class="brand">
-      <span class="brand-mark">A</span>
-      <span>UIC ASME<small>Est. Mechanical Eng. Dept.</small></span>
+      <img class="brand-logo" src="assets/logo/asme-classic.svg" alt="ASME">
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="events.html" class="active">Events</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="team.html">Board</a></li>
+      <li><a href="events.html" class="active">Events</a></li>
+      <li><a href="index.html#sponsors">Sponsors</a></li>
+      <li><a href="index.html#legacy">Legacy</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="about.html#join" class="btn btn-primary btn-sm">Join Chapter</a>
+      <a href="about.html#join" class="btn btn-primary btn-sm">Join ASME →</a>
       <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
     </div>
   </div>
 </nav>
 
-<header class="hero blueprint-bg" style="padding:64px 0 48px;">
-  <div class="container">
-    <div class="eyebrow reveal in">Calendar</div>
-    <h1 style="font-size:clamp(34px,4.6vw,52px); margin-top:16px;" class="reveal in">Events &amp; programming</h1>
-    <p class="lead reveal in" style="margin-top:16px;">Workshops, industry nights, design sessions, and socials — updated every semester by the events committee.</p>
-  </div>
-</header>
-
-<section style="padding-top:0;">
-  <div class="container">
-    <div class="filter-row reveal in" style="margin-bottom:40px;">
-      <button class="filter-chip active" data-filter="all">All events</button>
-      <button class="filter-chip" data-filter="open">Upcoming</button>
-      <button class="filter-chip" data-filter="past">Past</button>
+<section class="events-hero">
+  <div class="container events-hero-grid">
+    <div class="events-copy">
+      <h1>OUR <span>EVENTS</span></h1>
+      <p>Everything on our schedule lives here, from general meetings and workshops to industry nights, competitions, and socials. Browse by date and check back often, since new events get added throughout the semester.</p>
+      <a href="#events-calendar" class="btn btn-primary">Add to Calendar →</a>
     </div>
-
-    <div class="grid grid-3 reveal-stagger reveal">
-
-      <a href="event-detail.html" class="card event-card" data-status="open">
-        <div class="thumb">
-          <span class="date-chip">SEP 18</span>
-          <span class="status">Open</span>
-          <img src="assets/img/event-workshop.jpg" alt="Engineering responsibilities workshop">
-        </div>
-        <div class="body">
-          <h3>Engineering Responsibilities Workshop</h3>
-          <div class="meta"><span>6:00 PM</span><span>SEO 218</span><span>Workshop</span></div>
-          <p>A joint session on professional responsibility in mechanical design, hosted with IUOE Local 150.</p>
-          <span class="go">View details →</span>
-        </div>
-      </a>
-
-      <a href="event-detail.html" class="card event-card" data-status="open">
-        <div class="thumb">
-          <span class="date-chip">OCT 02</span>
-          <span class="status">Open</span>
-          <img src="assets/img/event-social.jpg" alt="Officer and member social">
-        </div>
-        <div class="body">
-          <h3>Officer &amp; Member Social</h3>
-          <div class="meta"><span>7:00 PM</span><span>SES Atrium</span><span>Social</span></div>
-          <p>Meet the e-board, grab food, and hear what committees are recruiting this semester.</p>
-          <span class="go">View details →</span>
-        </div>
-      </a>
-
-      <a href="event-detail.html" class="card event-card" data-status="open">
-        <div class="thumb">
-          <span class="date-chip">OCT 21</span>
-          <span class="status">Open</span>
-          <img src="assets/img/event-uic-asme.jpg" alt="General body meeting">
-        </div>
-        <div class="body">
-          <h3>Spring Kickoff General Body Meeting</h3>
-          <div class="meta"><span>5:30 PM</span><span>Lecture Center B2</span><span>GBM</span></div>
-          <p>Semester roadmap, committee sign-ups, and an intro to this year's design project.</p>
-          <span class="go">View details →</span>
-        </div>
-      </a>
-
-      <a href="event-detail.html" class="card event-card" data-status="open">
-        <div class="thumb">
-          <span class="date-chip">NOV 08</span>
-          <span class="status">Open</span>
-          <img src="assets/img/event-extra1.jpg" alt="Industry site tour">
-        </div>
-        <div class="body">
-          <h3>Manufacturing Site Tour</h3>
-          <div class="meta"><span>9:00 AM</span><span>Off-campus</span><span>Industry</span></div>
-          <p>A guided tour through a local precision-manufacturing floor, with Q&amp;A from process engineers.</p>
-          <span class="go">View details →</span>
-        </div>
-      </a>
-
-      <a href="event-detail.html" class="card event-card" data-status="past">
-        <div class="thumb">
-          <span class="date-chip">MAY 03</span>
-          <span class="status past">Past</span>
-          <img src="assets/img/event-group2.jpg" alt="End of year banquet">
-        </div>
-        <div class="body">
-          <h3>End-of-Year Banquet</h3>
-          <div class="meta"><span>6:30 PM</span><span>Student Center East</span><span>Social</span></div>
-          <p>Closing out the year with awards, officer transitions, and a chapter-wide dinner.</p>
-          <span class="go">View recap →</span>
-        </div>
-      </a>
-
-      <a href="event-detail.html" class="card event-card" data-status="past">
-        <div class="thumb">
-          <span class="date-chip">MAR 14</span>
-          <span class="status past">Past</span>
-          <img src="assets/img/event-extra4.jpg" alt="Resume workshop">
-        </div>
-        <div class="body">
-          <h3>Resume &amp; Interview Workshop</h3>
-          <div class="meta"><span>6:00 PM</span><span>SEO 108</span><span>Workshop</span></div>
-          <p>Mock interviews and resume reviews with alumni now working across aerospace and automotive.</p>
-          <span class="go">View recap →</span>
-        </div>
-      </a>
-
-      <a href="event-detail.html" class="card event-card" data-status="past">
-        <div class="thumb">
-          <span class="date-chip">FEB 27</span>
-          <span class="status past">Past</span>
-          <img src="assets/img/event-extra5.jpg" alt="Design review night">
-        </div>
-        <div class="body">
-          <h3>Design Project Review Night</h3>
-          <div class="meta"><span>6:30 PM</span><span>Makerspace</span><span>Project</span></div>
-          <p>Sub-teams presented CAD progress on this year's design-build competition entry.</p>
-          <span class="go">View recap →</span>
-        </div>
-      </a>
-
-      <a href="event-detail.html" class="card event-card" data-status="past">
-        <div class="thumb">
-          <span class="date-chip">JAN 30</span>
-          <span class="status past">Past</span>
-          <img src="assets/img/event-extra6.jpg" alt="Welcome back mixer">
-        </div>
-        <div class="body">
-          <h3>Welcome Back Mixer</h3>
-          <div class="meta"><span>5:00 PM</span><span>SES Atrium</span><span>Social</span></div>
-          <p>First meeting of spring semester — free food, chapter updates, and new-member sign-ups.</p>
-          <span class="go">View recap →</span>
-        </div>
-      </a>
-
+    <div class="events-media">
+      <img src="assets/img/event-group2.jpg" alt="ASME @ UIC members at an event">
     </div>
   </div>
 </section>
 
-<footer class="footer-v2">
+<section class="events-cal" id="events-calendar">
+  <div class="container">
+    <div class="calendar-box">
+      <iframe
+        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&src=Y2hyaXN0aWFuLmFndWlycmU1ODEwQGdtYWlsLmNvbQ&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039be5&color=%230b8043"
+        frameborder="0"
+        scrolling="no">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-v2" id="legacy">
   <div class="container">
     <div class="top">
       <div class="brand-col">
@@ -189,7 +81,7 @@
         <div>
           <h5>Contact</h5>
           <ul>
-            <li><a href="/cdn-cgi/l/email-protection#3851565e5778594b555d594c4d515b165b5755"><span class="__cf_email__" data-cfemail="0960676f6649687a646c687d7c606a276a6664">[email&#160;protected]</span></a></li>
+            <li><a href="mailto:info@asmeatuic.com">info@asmeatuic.com</a></li>
             <li class="fine">For events and membership updates reach out through our social media.</li>
           </ul>
         </div>
@@ -201,7 +93,6 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="js/main.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2a44c3ebbb9e1d7',t:'MTc4NjU4ODIyNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f"}' crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
