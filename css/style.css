@@ -1164,7 +1164,7 @@ body{ animation: page-in .5s var(--ease); }
 }
 .about-hero-inner h1 span{ color: var(--accent); }
 .about-hero-inner p{
-  color: #e8e8ec;
+  color: #ffffff;
   font-size: 16.5px;
   line-height: 1.55;
   margin: 0 auto 28px;
@@ -1361,4 +1361,325 @@ body{ animation: page-in .5s var(--ease); }
   .been-slide{ flex-basis: 90px; height: 90px; }
   .been-slide.is-center{ flex-basis: min(72vw, 320px); height: 190px; }
   .been-track{ min-height: 200px; }
+}
+.board-hero{
+  position: relative;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.board-hero h1{
+  font-size: clamp(36px, 5.4vw, 58px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 24px;
+  color: #fff;
+}
+.board-hero h1 span{ color: var(--accent); }
+.board-hero p{
+  color: #ffffff;
+  font-size: 16.5px;
+  line-height: 1.55;
+  margin: 0 auto 28px;
+  max-width: 520px;
+}
+.gray-line {
+  width: 1000px;
+  height: 1px;
+  background: rgb(46, 45, 45);
+  margin: 24px auto 0;
+}
+.board-members {
+  padding: 0 0 40px;
+}
+
+.board-members h2 {
+  font-size: 50px;
+  color: #fff;
+  margin: 0 0 34px;
+  transform: translateX(27px);
+}
+
+.administration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.administration {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.admin-person {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #8a8a90;
+  margin-bottom: 12px;
+}
+.admin-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.administration h3 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+}
+.administration .position {
+  color: #a1a1aa;
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+
+.administration .email {
+  color: #8a8a90;
+  font-size: 13px;
+  margin: 0;
+}
+
+.administration .bio {
+  color: #9a9aa3;
+  font-size: 14px;
+  line-height: 1.55;
+  margin-top: 18px;
+  max-width: 260px;
+}
+
+.linkedin {
+  margin-top: auto;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.linkedin svg{
+  width: 32px;
+  height: 32px;
+}
+
+.administration p {
+  color: #8a8a90;
+  font-size: 14px;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.engagement-title {
+  transform: translateX(1150px);
+  font-size: 50px;
+  color: #fff;
+  margin: 0 0 24px;
+}
+.engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.engagement {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.engagement-person {
+  width: 140px;
+  height: 140px;
+
+  background: #8a8a90;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  margin-bottom: 12px;
+}
+
+.engagement-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.engagement h3 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.engagement .position {
+  color: #a1a1aa;
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+
+.engagement .email {
+  color: #8a8a90;
+  font-size: 12px;
+  margin: 0;
+}
+
+.engagement .linkedin {
+  margin-top: auto;
+  padding-top: 20px;
+}
+.finance-title {
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 24px;
+  transform: translateX(450px);
+}
+
+.finance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.finance {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.finance-person {
+  width: 140px;
+  height: 140px;
+
+  background: #8a8a90;
+  border-radius: 12px;
+  overflow: hidden;
+
+  margin-bottom: 12px;
+}
+
+.finance-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.finance h3 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.finance .position {
+  color: #a1a1aa;
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+
+.finance .email {
+  color: #8a8a90;
+  font-size: 12px;
+  margin: 0;
+}
+
+.finance .linkedin {
+  margin-top: auto;
+  padding-top: 20px;
+}
+.media-title {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 24px;
+
+  text-align: right;
+
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.media {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.media-person {
+  width: 140px;
+  height: 140px;
+
+  background: #8a8a90;
+  border-radius: 12px;
+  overflow: hidden;
+
+  margin-bottom: 12px;
+}
+
+.media-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media h3 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.media .position {
+  color: #a1a1aa;
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+
+.media .email {
+  color: #8a8a90;
+  font-size: 12px;
+  margin: 0;
+}
+
+.media .linkedin {
+  margin-top: auto;
+  padding-top: 20px;
+}
+.media:nth-child(4) {
+  grid-column: 1;
 }
