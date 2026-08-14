@@ -4,6 +4,41 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---- Consistent active nav item ---- */
+  const pageFile = (location.pathname.split('/').pop() || 'index.html').toLowerCase() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    if (href.includes('#')) {
+      a.classList.remove('active');
+      return;
+    }
+    const target = href.split('/').pop().toLowerCase();
+    a.classList.toggle('active', target === pageFile);
+  });
+
+  /* ---- Sponsors / Legacy hash links always scroll ---- */
+  const scrollToHash = (hash) => {
+    if (!hash) return false;
+    const el = document.getElementById(hash.replace('#', ''));
+    if (!el) return false;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return true;
+  };
+  if (location.hash) setTimeout(() => scrollToHash(location.hash), 80);
+  document.querySelectorAll('a[href*="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const raw = a.getAttribute('href') || '';
+      const hash = raw.includes('#') ? raw.slice(raw.indexOf('#')) : '';
+      if (!hash || hash === '#') return;
+      const onIndex = pageFile === 'index.html';
+      const targetsIndex = raw.startsWith('index.html') || raw.startsWith('#');
+      if (onIndex && targetsIndex && scrollToHash(hash)) {
+        e.preventDefault();
+        history.pushState(null, '', hash);
+      }
+    });
+  });
+
   /* ---- Mobile nav toggle ---- */
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
@@ -91,29 +126,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---- Project team tabs (home page)(Has Sliders) ---- */
-const teamTabs = document.querySelectorAll('.team-tab');
-const teamPanels = document.querySelectorAll('.team-panel');
-const teamTrack = document.querySelector('.teams-track');
-if (teamTabs.length && teamPanels.length && teamTrack) {
-  teamTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const selectedTeam = tab.dataset.team;
-      let selectedIndex = 0;
-      teamPanels.forEach((panel, index) => {
-        if (panel.id === selectedTeam) {
-          selectedIndex = index;
-        }
+  /* ---- Project team tabs (home page) ---- */
+  const teamTabs = document.querySelectorAll('.team-tab');
+  const teamPanels = document.querySelectorAll('.team-panel');
+  const teamTrack = document.querySelector('.teams-track');
+  if (teamTabs.length && teamPanels.length && teamTrack) {
+    teamTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const selectedTeam = tab.dataset.team;
+        let selectedIndex = 0;
+        teamPanels.forEach((panel, index) => {
+          panel.classList.toggle('active', panel.id === selectedTeam);
+          if (panel.id === selectedTeam) selectedIndex = index;
+        });
+        teamTrack.style.transform = `translateX(-${selectedIndex * 100}%)`;
+        teamTabs.forEach(button => button.classList.remove('active'));
+        tab.classList.add('active');
       });
-      teamTrack.style.transform =
-        `translateX(-${selectedIndex * 100}%)`;
-      teamTabs.forEach(button => {
-        button.classList.remove('active');
-      });
-      tab.classList.add('active');
     });
-  });
-}
+  } else if (teamTabs.length) {
+    teamTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        teamTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.team-panel').forEach(p => p.classList.remove('active'));
+        const panel = document.getElementById(tab.dataset.team);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  }
 
   /* ---- Animated stat counters (home page) ---- */
   const statEls = document.querySelectorAll('.stat[data-count]');
@@ -162,6 +203,66 @@ if (teamTabs.length && teamPanels.length && teamTrack) {
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') { lightbox.classList.remove('open'); lightboxImg.src=''; }
+    });
+  }
+
+  /* ---- About next-step list ---- */
+  const aboutSteps = document.querySelectorAll('.about-step');
+  const aboutImg = document.getElementById('about-step-img');
+  if (aboutSteps.length && aboutImg) {
+    aboutSteps.forEach(step => {
+      step.addEventListener('click', () => {
+        aboutSteps.forEach(s => s.classList.remove('active'));
+        step.classList.add('active');
+        const src = step.dataset.img;
+        if (src) aboutImg.src = src;
+      });
+    });
+  }
+
+  /* ---- Where We've Been carousel ---- */
+  const beenSlides = Array.from(document.querySelectorAll('.been-slide'));
+  if (beenSlides.length) {
+    let beenIndex = beenSlides.findIndex(s => s.classList.contains('is-center'));
+    if (beenIndex < 0) beenIndex = 2;
+    const layoutBeen = () => {
+      const n = beenSlides.length;
+      beenSlides.forEach((slide, i) => {
+        let d = i - beenIndex;
+        if (d > n / 2) d -= n;
+        if (d < -n / 2) d += n;
+        slide.classList.toggle('is-center', i === beenIndex);
+        slide.classList.toggle('is-off', Math.abs(d) > 2);
+        slide.style.order = String(d + 10);
+      });
+    };
+    layoutBeen();
+    const stepBeen = () => {
+      beenIndex = (beenIndex + 1) % beenSlides.length;
+      layoutBeen();
+    };
+    let beenTimer = setInterval(stepBeen, 2800);
+    beenSlides.forEach((slide, i) => {
+      slide.addEventListener('click', () => {
+        beenIndex = i;
+        layoutBeen();
+        clearInterval(beenTimer);
+        beenTimer = setInterval(stepBeen, 2800);
+      });
+    });
+  }
+
+  /* ---- Legacy year tabs ---- */
+  const yearTabs = document.querySelectorAll('.legacy-year');
+  if (yearTabs.length) {
+    yearTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        yearTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        document.querySelectorAll('.legacy-board').forEach(b => b.classList.remove('active'));
+        const board = document.getElementById(tab.dataset.year);
+        if (board) board.classList.add('active');
+      });
     });
   }
 
