@@ -21,7 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!hash) return false;
     const el = document.getElementById(hash.replace('#', ''));
     if (!el) return false;
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const start = window.scrollY;
+    const target = Math.max(0, el.getBoundingClientRect().top + window.scrollY - 84);
+    const distance = target - start;
+    const duration = Math.min(820, Math.max(520, Math.abs(distance) * 0.55));
+    const startTime = performance.now();
+    const ease = t => 1 - Math.pow(1 - t, 4);
+
+    const animateScroll = now => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      window.scrollTo(0, start + distance * ease(progress));
+      if (progress < 1) requestAnimationFrame(animateScroll);
+    };
+    requestAnimationFrame(animateScroll);
     return true;
   };
   if (location.hash) setTimeout(() => scrollToHash(location.hash), 80);
@@ -30,9 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const raw = a.getAttribute('href') || '';
       const hash = raw.includes('#') ? raw.slice(raw.indexOf('#')) : '';
       if (!hash || hash === '#') return;
-      const onIndex = pageFile === 'index.html';
-      const targetsIndex = raw.startsWith('index.html') || raw.startsWith('#');
-      if (onIndex && targetsIndex && scrollToHash(hash)) {
+      const samePage = raw.startsWith('#') || raw.split('#')[0] === '' || raw.split('#')[0] === pageFile;
+      if (samePage && scrollToHash(hash)) {
         e.preventDefault();
         history.pushState(null, '', hash);
       }
@@ -207,18 +219,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---- About next-step list ---- */
-  const aboutSteps = document.querySelectorAll('.about-step');
-  const aboutImg = document.getElementById('about-step-img');
-  if (aboutSteps.length && aboutImg) {
-    aboutSteps.forEach(step => {
-      step.addEventListener('click', () => {
-        aboutSteps.forEach(s => s.classList.remove('active'));
-        step.classList.add('active');
-        const src = step.dataset.img;
-        if (src) aboutImg.src = src;
-      });
+const aboutSteps = document.querySelectorAll('.about-step');
+const aboutImg = document.getElementById('about-step-img');
+if (aboutSteps.length && aboutImg) {
+  aboutSteps.forEach(step => {
+    step.addEventListener('click', () => {
+      aboutSteps.forEach(s => s.classList.remove('active'));
+      step.classList.add('active');
+      const src = step.dataset.img;
+      if (src) {
+        aboutImg.src = src;
+      }
     });
+  });
+
+  // Load the first/active image when the page opens
+  const activeStep =
+    document.querySelector('.about-step.active') || aboutSteps[0];
+  if (activeStep) {
+    activeStep.classList.add('active');
+    const src = activeStep.dataset.img;
+    if (src) {
+      aboutImg.src = src;
+    }
   }
+}
 
   /* ---- Where We've Been carousel ---- */
   const beenSlides = Array.from(document.querySelectorAll('.been-slide'));
@@ -267,3 +292,22 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+
+/* ---- Smooth page-to-page transition ---- */
+(() => {
+  const beginPageTransition = (url) => {
+    document.body.classList.add('page-transitioning');
+    window.setTimeout(() => { window.location.href = url; }, 420);
+  };
+
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link || event.defaultPrevented) return;
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank') return;
+    const destination = new URL(href, window.location.href);
+    if (destination.origin !== window.location.origin || destination.pathname === window.location.pathname && destination.hash) return;
+    event.preventDefault();
+    beginPageTransition(destination.href);
+  });
+})();
