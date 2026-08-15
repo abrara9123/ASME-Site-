@@ -1118,7 +1118,8 @@ body{ animation: page-in .5s var(--ease); }
 /* About page — hero + next-step split */
 .about-hero{
   position: relative;
-  min-height: 520px;
+  height: 420px;
+  min-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1147,14 +1148,19 @@ body{ animation: page-in .5s var(--ease); }
   z-index: 2;
   pointer-events: none;
 }
-.about-hero-inner{
+.about-hero > .about-hero-inner{
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  opacity: 1;
+  visibility: visible;
+}
+.about-hero > .about-hero-inner ~ .about-hero-inner{ display: none; }
+.about-hero-inner{
   max-width: 720px;
-  padding: 80px 24px 72px;
+  padding: 40px 24px 32px;
 }
 .about-hero-inner h1{
-  font-size: clamp(36px, 5.4vw, 58px);
+  font-size: 58px;
   font-weight: 800;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -1683,3 +1689,42 @@ body{ animation: page-in .5s var(--ease); }
 .media:nth-child(4) {
   grid-column: 1;
 }
+/* ---------- Page transition ---------- */
+body.page-transitioning::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  background:linear-gradient(115deg, transparent 0%, rgba(61,111,168,.18) 42%, rgba(0,98,252,.92) 50%, rgba(61,111,168,.18) 58%, transparent 100%);
+  transform:translateX(-110%);
+  animation:page-wipe .62s cubic-bezier(.76,0,.24,1) forwards;
+}
+@keyframes page-wipe{
+  to{ transform:translateX(110%); }
+}
+@media (prefers-reduced-motion: reduce){
+  body.page-transitioning::before{ animation:none; opacity:0; }
+}
+
+/* ---------- Ambient blue lighting on dark pages ---------- */
+body::after{
+  content:"";
+  position:fixed;
+  inset:-18%;
+  z-index:2;
+  pointer-events:none;
+  opacity:.22;
+  background:
+    radial-gradient(ellipse 32% 24% at 8% 18%, rgba(0,98,252,.42), transparent 72%),
+    radial-gradient(ellipse 28% 22% at 92% 72%, rgba(61,111,168,.32), transparent 72%),
+    radial-gradient(ellipse 22% 18% at 54% 108%, rgba(0,98,252,.22), transparent 74%);
+  filter:blur(34px);
+  mix-blend-mode:screen;
+  animation:ambient-blue-drift 14s ease-in-out infinite alternate;
+}
+@keyframes ambient-blue-drift{
+  from{ transform:translate3d(-1.5%, -1%, 0) scale(1); }
+  to{ transform:translate3d(1.5%, 1%, 0) scale(1.04); }
+}
+@media (prefers-reduced-motion:reduce){body::after{animation:none}}
