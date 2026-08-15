@@ -219,31 +219,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---- About next-step list ---- */
-const aboutSteps = document.querySelectorAll('.about-step');
-const aboutImg = document.getElementById('about-step-img');
-if (aboutSteps.length && aboutImg) {
-  aboutSteps.forEach(step => {
-    step.addEventListener('click', () => {
-      aboutSteps.forEach(s => s.classList.remove('active'));
-      step.classList.add('active');
-      const src = step.dataset.img;
-      if (src) {
-        aboutImg.src = src;
-      }
+  const aboutSteps = document.querySelectorAll('.about-step');
+  const aboutImg = document.getElementById('about-step-img');
+  if (aboutSteps.length && aboutImg) {
+    aboutSteps.forEach(step => {
+      step.addEventListener('click', () => {
+        aboutSteps.forEach(s => s.classList.remove('active'));
+        step.classList.add('active');
+        const src = step.dataset.img;
+        if (src) aboutImg.src = src;
+      });
     });
-  });
-
-  // Load the first/active image when the page opens
-  const activeStep =
-    document.querySelector('.about-step.active') || aboutSteps[0];
-  if (activeStep) {
-    activeStep.classList.add('active');
-    const src = activeStep.dataset.img;
-    if (src) {
-      aboutImg.src = src;
-    }
   }
-}
 
   /* ---- Where We've Been carousel ---- */
   const beenSlides = Array.from(document.querySelectorAll('.been-slide'));
