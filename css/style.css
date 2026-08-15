@@ -1489,10 +1489,13 @@ body{ animation: page-in .5s var(--ease); }
   line-height: 1.4;
 }
 .engagement-title {
-  transform: translateX(1150px);
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 24px;
   font-size: 50px;
+  font-weight: 700;
   color: #fff;
-  margin: 0 0 24px;
+  text-align: left;
 }
 .engagement-grid {
   display: grid;
@@ -1553,11 +1556,13 @@ body{ animation: page-in .5s var(--ease); }
   padding-top: 20px;
 }
 .finance-title {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 24px;
   font-size: 50px;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 24px;
-  transform: translateX(450px);
+  text-align: left;
 }
 
 .finance-grid {
@@ -1618,15 +1623,13 @@ body{ animation: page-in .5s var(--ease); }
   padding-top: 20px;
 }
 .media-title {
-  width: 100%;
+ width: 100%;
   max-width: 1000px;
   margin: 0 auto 24px;
-
-  text-align: right;
-
   font-size: 50px;
   font-weight: 700;
   color: #fff;
+  text-align: left;
 }
 
 .media-grid {
@@ -1688,6 +1691,198 @@ body{ animation: page-in .5s var(--ease); }
 }
 .media:nth-child(4) {
   grid-column: 1;
+}
+.technical-title {
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 24px;
+  transform: translateX(450px);
+}
+
+.technical-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.technical {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.technical-person {
+  width: 140px;
+  height: 140px;
+
+  background: #8a8a90;
+  border-radius: 12px;
+  overflow: hidden;
+
+  margin-bottom: 12px;
+}
+
+.technical-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.technical h3 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.technical .position {
+  color: #a1a1aa;
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+
+.technical .email {
+  color: #8a8a90;
+  font-size: 12px;
+  margin: 0;
+}
+
+.technical .linkedin {
+  margin-top: auto;
+  padding-top: 20px;
+}
+.outreach-title {
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 24px;
+  transform: translateX(450px);
+}
+
+.outreach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.outreach {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.outreach-person {
+  width: 140px;
+  height: 140px;
+
+  background: #8a8a90;
+  border-radius: 12px;
+  overflow: hidden;
+
+  margin-bottom: 12px;
+}
+
+.outreach-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.outreach h3 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.outreach .position {
+  color: #a1a1aa;
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+
+.outreach .email {
+  color: #8a8a90;
+  font-size: 12px;
+  margin: 0;
+}
+
+.outreach .linkedin {
+  margin-top: auto;
+  padding-top: 20px;
+}
+.team-lead-title {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 24px;
+
+  font-size: 50px;
+  font-weight: 700;
+  color: #fff;
+  text-align: left;
+}
+.team-lead-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  align-items: stretch;
+}
+.team-lead {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.team-lead-person {
+  width: 140px;
+  height: 140px;
+
+  background: #8a8a90;
+  border-radius: 12px;
+  overflow: hidden;
+
+  margin-bottom: 12px;
+}
+.team-lead-person img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.team-lead h3 {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  margin: 0;
+}
+.team-lead .position {
+  color: #a1a1aa;
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+.team-lead .email {
+  color: #8a8a90;
+  font-size: 12px;
+  margin: 0;
+}
+.team-lead .linkedin {
+  margin-top: auto;
+  padding-top: 20px;
 }
 /* ---------- Page transition ---------- */
 body.page-transitioning::before{
