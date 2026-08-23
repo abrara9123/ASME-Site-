@@ -363,6 +363,46 @@ if (aboutStats) {
 
   statsObserver.observe(aboutStats);
 }
+/* ---- Sponsorship inquiry modal ---- */
+const sponsorModal = document.getElementById('sponsorModal');
+const sponsorModalClose = document.getElementById('sponsorModalClose');
+const sponsorButtons = document.querySelectorAll('.sponsor-open');
+const sponsorTier = document.getElementById('sponsorTier');
+
+if (sponsorModal && sponsorButtons.length) {
+  sponsorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const tier = button.dataset.tier;
+      if (sponsorTier) {
+        sponsorTier.value = tier;
+      }
+      sponsorModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  const closeSponsorModal = () => {
+    sponsorModal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  sponsorModalClose?.addEventListener(
+    'click',
+    closeSponsorModal
+  );
+  /* Click outside popup to close */
+  sponsorModal.addEventListener('click', (event) => {
+    if (event.target === sponsorModal) {
+      closeSponsorModal();
+    }
+  });
+  /* ESC key closes popup */
+  document.addEventListener('keydown', (event) => {
+
+    if (event.key === 'Escape') {
+      closeSponsorModal();
+    }
+
+  });
+}
 });
 
 /* ---- Smooth page-to-page transition ---- */

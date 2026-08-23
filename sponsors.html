@@ -90,7 +90,7 @@
           <li>Benefit 3</li>
           <li>Benefit4</li>
         </ul>
-        <a class="btn btn-primary" href="mailto:info@asmeatuic.com?subject=Sponsorship%20inquiry">Get Started</a>
+        <button class="btn btn-primary sponsor-open" data-tier="Silver">Get Started</button>
       </article>
 
       <article class="tier-card tier-card--featured">
@@ -102,7 +102,7 @@
           <li>Benefit 3</li>
           <li>Benefit4</li>
         </ul>
-        <a class="btn tier-btn-dark" href="mailto:info@asmeatuic.com?subject=Sponsorship%20inquiry">Get Started</a>
+        <button class="btn tier-btn-dark sponsor-open" data-tier="Gold">Get Started</button>
       </article>
 
       <article class="tier-card">
@@ -114,13 +114,77 @@
           <li>Benefit 3</li>
           <li>Benefit4</li>
         </ul>
-        <a class="btn btn-primary" href="mailto:info@asmeatuic.com?subject=Sponsorship%20inquiry">Get Started</a>
+        <button class="btn btn-primary sponsor-open" data-tier="Diamond">Get Started</button>
       </article>
     </div>
 
   </div>
 </section>
-
+<div class="sponsor-modal" id="sponsorModal">
+  <div class="sponsor-modal-box">
+    <button class="sponsor-modal-close" id="sponsorModalClose">
+      ×
+    </button>
+    <h2>Sponsorship Inquiry</h2>
+    <p class="sponsor-modal-intro">
+      Tell us a little about your company and we'll get back to you.
+    </p>
+    <form
+      id="sponsorForm"
+      action="YOUR_FORMSPREE_URL"
+      method="POST"
+    >
+      <div class="form-group">
+        <label for="companyName">Company Name</label>
+        <input
+          type="text"
+          id="companyName"
+          name="company"
+          required
+        >
+      </div>
+      <div class="form-group">
+        <label for="contactName">Contact Name</label>
+        <input
+          type="text"
+          id="contactName"
+          name="contact_name"
+          required
+        >
+      </div>
+      <div class="form-group">
+        <label for="contactEmail">Email</label>
+        <input
+          type="email"
+          id="contactEmail"
+          name="email"
+          required
+        >
+      </div>
+      <div class="form-group">
+        <label for="sponsorTier">Sponsorship Tier</label>
+        <input
+          type="text"
+          id="sponsorTier"
+          name="tier"
+          readonly
+        >
+      </div>
+      <div class="form-group">
+        <label for="sponsorComments">Comments</label>
+        <textarea
+          id="sponsorComments"
+          name="comments"
+          rows="5"
+          placeholder="Tell us about your company, goals, questions, or sponsorship interests..."
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary sponsor-submit">
+        Send Request →
+      </button>
+    </form>
+  </div>
+</div>
 <footer class="footer-v2" id="legacy">
   <div class="container">
     <div class="top">

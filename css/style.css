@@ -1216,24 +1216,141 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   border-radius: 8px;
 }
 .tier-card--featured{
-  background: #0062fc;
-  border-color: #0062fc;
+  background: var(--accent);
+  border-color: var(--accent);
   transform: translateY(-8px);
 }
 .tier-card--featured h3,
 .tier-card--featured .tier-price,
 .tier-card--featured li{ color: #fff; }
-.tier-btn-dark{
-  background: #111;
+.tier-btn-dark {
+  background: #000;
   color: #fff;
   border: none;
 }
-.tier-btn-dark:hover{ background: #000; transform: translateY(-1px); }
+
+.tier-btn-dark:hover {
+  background: #111;
+}
 
 @media (max-width: 980px){
   .sponsor-benefits,
   .sponsor-tiers{ grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
   .tier-card--featured{ transform: none; }
+}
+/* =========================================
+   SPONSORSHIP POPUP
+   ========================================= */
+.sponsor-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease;
+}
+.sponsor-modal.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+/* Actual popup box */
+.sponsor-modal-box {
+  position: relative;
+  width: min(560px, 100%);
+  background: #181818;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  padding: 36px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  transform: translateY(25px) scale(0.97);
+  transition: transform 0.3s ease;
+}
+.sponsor-modal.open .sponsor-modal-box {
+  transform: translateY(0) scale(1);
+}
+/* Close X */
+.sponsor-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+.sponsor-modal-close:hover {
+  color: #fff;
+}
+/* Heading */
+.sponsor-modal-box h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.sponsor-modal-intro {
+  color: #a1a1aa;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+/* Fields */
+.form-group {
+  margin-bottom: 18px;
+}
+.form-group label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ddd;
+  margin-bottom: 7px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.form-group textarea {
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+/* Tier field */
+#sponsorTier {
+  color: var(--accent);
+  font-weight: 600;
+}
+/* Send button */
+.sponsor-submit {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 17px;
+  padding: 14px 24px;
 }
 
 /* Legacy page */
