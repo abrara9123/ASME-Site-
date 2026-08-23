@@ -2234,7 +2234,7 @@ body::after{
   padding: 13px 28px;
   border-radius: 8px;
 }
-.board-page .site-nav {
+.board-page .site-nav,.events-page .site-nav {
   position: relative;
   top: auto;
   left: auto;
@@ -2249,7 +2249,7 @@ body::after{
   -webkit-backdrop-filter: none;
 }
 
-.board-page .site-nav .container {
+.board-page .site-nav .container,.events-page .site-nav .container {
   width: 100%;
   max-width: 1100px;
   height: 100%;
@@ -2262,16 +2262,16 @@ body::after{
   align-items: center;
 }
 
-.board-page .brand {
+.board-page .brand,.events-page .brand {
   justify-self: start;
 }
 
-.board-page .brand-logo {
+.board-page .brand-logo,.events-page .brand-logo {
   width: 95px;
   height: auto;
 }
 
-.board-page .nav-links {
+.board-page .nav-links,.events-page .nav-links {
   position: static;
   transform: none;
   justify-self: center;
@@ -2281,25 +2281,25 @@ body::after{
   gap: 24px;
 }
 
-.board-page .nav-links a {
+.board-page .nav-links a,.events-page .nav-links a {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 500;
   padding: 10px 8px 12px;
 }
 
-.board-page .nav-links a.active::after {
+.board-page .nav-links a.active::after,.events-page .nav-links a.active::after {
   left: 8px;
   right: 8px;
   bottom: 2px;
 }
 
-.board-page .nav-actions {
+.board-page .nav-actions,.events-page .nav-actions {
   justify-self: end;
   margin: 0;
 }
 
-.board-page .nav-actions .btn-sm {
+.board-page .nav-actions .btn-sm,.events-page .nav-actions .btn-sm {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 700;
