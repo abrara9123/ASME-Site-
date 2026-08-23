@@ -290,7 +290,79 @@ if (aboutSteps.length && aboutImg) {
       });
     });
   }
+/* ---- About Building Fast stats animation ---- */
+const aboutStats = document.querySelector('.about-stats');
 
+if (aboutStats) {
+
+  const animateAboutNumber = (card) => {
+
+    const number = card.querySelector('b');
+    const target = parseInt(card.dataset.count, 10);
+    const suffix = card.dataset.suffix || '';
+
+    const duration = 1000;
+    const startTime = performance.now();
+
+    const updateNumber = (currentTime) => {
+
+      const progress = Math.min(
+        (currentTime - startTime) / duration,
+        1
+      );
+
+      /* Smooth easing */
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      const currentNumber = Math.round(target * eased);
+
+      number.textContent = currentNumber + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateNumber);
+      }
+    };
+
+    requestAnimationFrame(updateNumber);
+  };
+
+
+  const statsObserver = new IntersectionObserver(
+    (entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          /* Start card rise animation */
+          aboutStats.classList.add('animate');
+
+          const cards =
+            aboutStats.querySelectorAll('.about-stat');
+
+          cards.forEach((card, index) => {
+
+            /* Match the staggered card animation */
+            setTimeout(() => {
+              animateAboutNumber(card);
+            }, 100 + (index * 120));
+
+          });
+
+          /* Only run once */
+          observer.unobserve(aboutStats);
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.3
+    }
+  );
+
+  statsObserver.observe(aboutStats);
+}
 });
 
 /* ---- Smooth page-to-page transition ---- */
@@ -311,3 +383,4 @@ if (aboutSteps.length && aboutImg) {
     beginPageTransition(destination.href);
   });
 })();
+
