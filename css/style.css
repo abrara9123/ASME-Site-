@@ -722,22 +722,19 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .calendar-section .section-head{ margin-bottom: 24px; }
 .calendar-section .section-head h2{ font-size: clamp(34px, 4.4vw, 48px); }
 .calendar-section .section-head p{ margin-top: 12px; }
-.calendar-box{
+.calendar-box {
   width: 100%;
   margin: 0 auto;
   height: 400px;
-  border: 1px solid rgba(255,31,45,0.28);
+  border: none;
   border-radius: 14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color: #8a8a90;
-  font-family: var(--font-body);
-  font-size: 14.5px;
-  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
   overflow: hidden;
   box-sizing: border-box;
-  box-shadow: 0 0 0 1px rgba(255,31,45,0.08);
+  box-shadow: none;
 }
 .calendar-box iframe {
   width: 102%;
@@ -746,15 +743,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   border: none;
   display: block;
   background: #fff;
-  filter:
-    invert(1)
-    brightness(.84)
-    sepia(.9)
-    hue-rotate(320deg)
-    saturate(2.8)
-    contrast(1.12);
 }
-
 /* Footer v2 — matches mockup */
 .footer-v2{
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -964,6 +953,68 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .events-hero-grid{ grid-template-columns: 1fr; gap: 32px; }
   .events-media{ order: -1; }
   .events-copy p{ max-width: none; }
+}
+/* =========================================
+   EVENTS — HOW TO JOIN
+   ========================================= */
+.events-join {
+  padding: 0 0 64px;
+  background: #111;
+}
+.events-join-box {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 42px 30px 28px;
+  text-align: center;
+  background: #151515;
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 10px;
+}
+/* Title */
+.events-join-box h2 {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+/* Red ASME @ UIC */
+.events-join-box h2 span {
+  color: var(--accent);
+}
+/* Description */
+.events-join-box p {
+  max-width: 610px;
+  margin: 14px auto 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #8f8f96;
+}
+/* See Next Event button */
+.events-join-box .btn {
+  margin-top: 20px;
+  padding: 8px 9px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+/* Mobile */
+@media (max-width: 720px) {
+  .events-join-box {
+    padding: 36px 22px 28px;
+  }
+  .events-join-box h2 {
+    font-size: 30px;
+  }
+  .events-join-box p {
+    font-size: 13px;
+  }
 }
 
 /* Sponsors page */
@@ -2281,19 +2332,19 @@ body::after{
   flex-shrink: 0;
 }
 .logo-set img[src*="ge.png"] {
-  height: 54px;
+  height: 5px;
 }
 .logo-set img[src*="iuoe.png"] {
-  height: 68px;
+  height: 5px;
 }
 .logo-set img[src*="nasa.png"] {
-  height: 34px;
+  height: 5px;
 }
 .logo-set img[src*="bnsf.png"] {
-  height: 40px;
+  height: 5px;
 }
 .logo-set img[src*="milwaukee.png"] {
-  height: 48px;
+  height: 5px;
 }
 @keyframes logo-scroll {
   from {
