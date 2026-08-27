@@ -403,6 +403,60 @@ if (sponsorModal && sponsorButtons.length) {
 
   });
 }
+/* ---- Sponsorship form submission ---- */
+const sponsorForm = document.getElementById('sponsorForm');
+if (sponsorForm) {
+  sponsorForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const submitButton =
+      sponsorForm.querySelector('.sponsor-submit');
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+    const formData = {
+      company:
+        document.getElementById('companyName').value,
+      name:
+        document.getElementById('contactName').value,
+      email:
+        document.getElementById('contactEmail').value,
+      tier:
+        document.getElementById('sponsorTier').value,
+      message:
+        document.getElementById('sponsorComments').value
+    };
+    try {
+      const response = await fetch('/api/sponsor-ticket', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(
+          result.error || 'Unable to send sponsorship request.'
+        );
+      }
+      alert(
+        `Request sent successfully!\nTicket ID: ${result.ticketId}`
+      );
+      sponsorForm.reset();
+      if (sponsorModal) {
+        sponsorModal.classList.remove('open');
+      }
+      document.body.style.overflow = '';
+    } catch (error) {
+      console.error('Sponsorship request error:', error);
+      alert(
+        'Unable to send your sponsorship request. Please try again.'
+      );
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send Request →';
+    }
+  });
+}
 });
 
 /* ---- Smooth page-to-page transition ---- */
