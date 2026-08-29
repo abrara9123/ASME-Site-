@@ -139,34 +139,88 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---- Project team tabs (home page) ---- */
-  const teamTabs = document.querySelectorAll('.team-tab');
-  const teamPanels = document.querySelectorAll('.team-panel');
-  const teamTrack = document.querySelector('.teams-track');
-  if (teamTabs.length && teamPanels.length && teamTrack) {
-    teamTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const selectedTeam = tab.dataset.team;
-        let selectedIndex = 0;
-        teamPanels.forEach((panel, index) => {
-          panel.classList.toggle('active', panel.id === selectedTeam);
-          if (panel.id === selectedTeam) selectedIndex = index;
-        });
-        teamTrack.style.transform = `translateX(-${selectedIndex * 100}%)`;
-        teamTabs.forEach(button => button.classList.remove('active'));
-        tab.classList.add('active');
+
+const teamTabs = document.querySelectorAll('.team-tab');
+const teamPanels = document.querySelectorAll('.team-panel');
+const teamTrack = document.querySelector('.teams-track');
+const teamViewport = document.querySelector('.teams-viewport');
+
+let teamSwitchTimer;
+
+if (teamTabs.length && teamPanels.length && teamTrack) {
+
+  teamTabs.forEach(tab => {
+
+    tab.addEventListener('click', () => {
+
+      const selectedTeam = tab.dataset.team;
+      let selectedIndex = 0;
+
+      teamPanels.forEach((panel, index) => {
+
+        panel.classList.toggle(
+          'active',
+          panel.id === selectedTeam
+        );
+
+        if (panel.id === selectedTeam) {
+          selectedIndex = index;
+        }
+
       });
+
+
+      /* Change active tab immediately */
+      teamTabs.forEach(button =>
+        button.classList.remove('active')
+      );
+
+      tab.classList.add('active');
+
+
+      const newPosition =
+        `translateX(-${selectedIndex * 100}%)`;
+
+
+      /* MOBILE */
+      if (
+        window.matchMedia('(max-width: 720px)').matches &&
+        teamViewport
+      ) {
+
+        clearTimeout(teamSwitchTimer);
+
+        /* Fade current card out */
+        teamViewport.classList.add('team-switching');
+
+        teamSwitchTimer = setTimeout(() => {
+
+          /* Switch cards while invisible */
+          teamTrack.style.transform = newPosition;
+
+          requestAnimationFrame(() => {
+
+            /* Fade new card in */
+            teamViewport.classList.remove('team-switching');
+
+          });
+
+        }, 180);
+
+      }
+
+      /* DESKTOP */
+      else {
+
+        teamTrack.style.transform = newPosition;
+
+      }
+
     });
-  } else if (teamTabs.length) {
-    teamTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        teamTabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        document.querySelectorAll('.team-panel').forEach(p => p.classList.remove('active'));
-        const panel = document.getElementById(tab.dataset.team);
-        if (panel) panel.classList.add('active');
-      });
-    });
-  }
+
+  });
+
+}
 
   /* ---- Animated stat counters (home page) ---- */
   const statEls = document.querySelectorAll('.stat[data-count]');

@@ -876,9 +876,13 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .stats-bar .container{ grid-template-columns: repeat(2,1fr); }
   .stats-bar .stat:nth-child(3){ border-left:none; }
   .stats-bar .stat{ border-bottom:1px solid var(--border); }
-  .team-panel.active{ grid-template-columns:1fr; gap:24px; padding:24px; }
+  .team-panel {
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 24px;
+}
   .team-panel .txt-side{ padding:0; }
-  .team-panel .img-side{ aspect-ratio:16/9; }
+  .team-panel .img-side{ width:100%; aspect-ratio:16/9; }
   .logo-row .logos{ gap:28px; }
   .logo-row .logos img{ height: 40px; }
   .logo-row .logos img[alt="GE Vernova"]{ height: 42px; }
@@ -2496,4 +2500,1012 @@ body::after{
   font-weight: 700;
   padding: 13px 24px;
   border-radius: 7px;
+}
+.calendar-mobile {
+  display: none;
+}
+a,
+button,
+.btn,
+.nav-toggle {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+/*
+   FINAL MOBILE NAVBAR
+   Keep this at the bottom of style.css
+   ========================================= */
+   /* =========================================
+   TABLET — 721px to 980px
+   ========================================= */
+
+@media (min-width: 721px) and (max-width: 980px) {
+
+  /* =========================================
+     TABLET NAVBAR
+     ========================================= */
+
+  .hero-v2 .site-nav .container {
+    height: 76px;
+    padding: 0 28px;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  .hero-v2 .brand-logo {
+    width: 90px;
+  }
+
+  /* Hide desktop Join button */
+  .hero-v2 .nav-actions .btn-primary {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .hero-v2 .nav-toggle {
+    display: flex;
+  }
+
+  /* Tablet dropdown */
+  .hero-v2 .nav-links {
+    position: fixed;
+
+    top: 76px;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: auto;
+
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+    padding: 12px 28px 20px;
+
+    background: #111;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-10px);
+
+    transition:
+      opacity .25s ease,
+      transform .25s ease,
+      visibility .25s ease;
+  }
+
+  .hero-v2 .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+  }
+
+  .hero-v2 .nav-links li {
+    width: 100%;
+  }
+
+  .hero-v2 .nav-links a {
+    display: block;
+    width: 100%;
+
+    padding: 14px 12px;
+
+    font-size: 16px;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+
+
+  /* =========================================
+     HOME HERO — TABLET
+     ========================================= */
+
+  .hero-v2 {
+    aspect-ratio: auto;
+    min-height: 760px;
+
+    overflow: visible;
+  }
+
+  .hero-v2-bg {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-v2-inner {
+    padding: 140px 40px 60px;
+  }
+
+  .hero-v2-inner .eyebrow {
+    font-size: 13px;
+    padding: 7px 24px;
+
+    margin: 0 auto;
+
+    transform: none;
+  }
+
+  .hero-v2-inner h1 {
+    font-size: 58px;
+    line-height: 1.02;
+
+    max-width: 680px;
+
+    margin: 28px auto 0;
+
+    top: 0;
+
+    letter-spacing: -.03em;
+  }
+
+  .hero-v2-inner p.lead {
+    max-width: 600px;
+
+    margin: 28px auto 0;
+
+    font-size: 18px;
+    line-height: 1.5;
+
+    transform: none;
+  }
+
+  .hero-v2-inner .hero-cta {
+    margin-top: 30px;
+    transform: none;
+  }
+
+  .hero-v2-inner .hero-cta .btn {
+    width: 100%;
+    max-width: 360px;
+    min-width: 0;
+
+    font-size: 20px;
+  }
+
+}
+@media (max-width: 720px) {
+  .hero-v2 {
+  overflow: visible;
+}
+
+  /* Navbar itself */
+  .site-nav,
+  .board-page .site-nav,
+  .events-page .site-nav,
+  .legacy-body .site-nav {
+    height: 76px;
+    overflow: visible;
+    z-index: 1000;
+  }
+
+
+  /* Navbar inner layout */
+  .hero-v2 .site-nav .container,
+  .about-nav .container,
+  .sponsors-nav .container,
+  .board-page .site-nav .container,
+  .events-page .site-nav .container,
+  .legacy-body .site-nav .container {
+    width: 100%;
+    height: 76px;
+
+    padding: 0 18px;
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+
+  /* Logo */
+  .hero-v2 .brand-logo,
+  .about-nav .brand-logo,
+  .sponsors-nav .brand-logo,
+  .board-page .brand-logo,
+  .events-page .brand-logo,
+  .legacy-body .brand-logo {
+    width: 78px;
+    height: auto;
+  }
+
+
+  /* Hide Join ASME desktop button */
+  .nav-actions .btn-primary {
+    display: none;
+  }
+
+
+  /* Show hamburger */
+  .nav-toggle {
+    display: flex;
+  }
+
+  .hero-v2 .nav-links,
+  .about-nav .nav-links,
+  .sponsors-nav .nav-links,
+  .board-page .nav-links,
+  .events-page .nav-links,
+  .legacy-body .nav-links {
+
+    position: fixed;
+
+    top: 76px;
+    left: 0;
+    right: 0;
+    bottom: auto;
+
+    width: 100%;
+    height: auto;
+
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    gap: 0;
+    margin: 0;
+    padding: 10px 18px 18px;
+
+    background: #111;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    transform: translateY(-10px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      opacity .25s ease,
+      transform .25s ease,
+      visibility .25s ease;
+  }
+
+
+  .hero-v2 .nav-links.open,
+  .about-nav .nav-links.open,
+  .sponsors-nav .nav-links.open,
+  .board-page .nav-links.open,
+  .events-page .nav-links.open,
+  .legacy-body .nav-links.open {
+
+    transform: translateY(0);
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  /* Each row */
+  .nav-links li {
+    width: 100%;
+  }
+
+
+  .hero-v2 .nav-links a,
+  .about-nav .nav-links a,
+  .sponsors-nav .nav-links a,
+  .board-page .nav-links a,
+  .events-page .nav-links a,
+  .legacy-body .nav-links a {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 14px 12px;
+
+    font-size: 16px;
+    color: #a1a1aa;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-links a.active {
+    color: #fff;
+  }
+  .nav-links a.active::after {
+    display: none;
+  }
+  /* =========================================
+   HOME HERO — MOBILE
+   ========================================= */
+
+.hero-v2 {
+  aspect-ratio: auto;
+  min-height: 720px;
+}
+
+.hero-v2-bg {
+  width: 100%;
+  height: calc(100% + 100px);
+  object-fit: cover;
+  object-position: center;
+  top: -100px;
+}
+/* Whole hero content */
+.hero-v2-inner {
+  padding: 115px 18px 40px;
+}
+
+
+/* All majors welcome */
+.hero-v2-inner .eyebrow {
+  font-size: 12px;
+  padding: 7px 20px;
+  margin: 0 auto;
+}
+
+
+/* Main heading */
+.hero-v2-inner h1 {
+  font-size: 46px;
+  line-height: 1.02;
+
+  max-width: 100%;
+
+  margin: 28px auto 0;
+
+  letter-spacing: -0.03em;
+
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+
+/* Description */
+.hero-v2-inner p.lead {
+  font-size: 16px;
+  line-height: 1.5;
+
+  max-width: 340px;
+
+  margin: 26px auto 0;
+
+  transform: none;
+}
+
+
+/* Join button area */
+.hero-v2-inner .hero-cta {
+  margin-top: 28px;
+  transform: none;
+}
+
+
+/* Join button */
+.hero-v2-inner .hero-cta .btn {
+  min-width: 0;
+  width: 100%;
+  max-width: 320px;
+
+  font-size: 18px;
+
+  padding: 14px 24px;
+}
+/* =========================================
+   MOBILE PROJECT TEAM TRANSITION
+   ========================================= */
+
+.teams-viewport {
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.teams-viewport.team-switching {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+/* Don't slide through every card on mobile */
+.teams-track {
+  transition: none;
+}
+
+/* Mobile */
+
+  .calendar-desktop {
+    display: none;
+  }
+
+  .calendar-mobile {
+    display: block;
+  }
+
+  .calendar-mobile {
+    height: 420px;
+  }
+
+.calendar-mobile iframe {
+    width: 100%;
+    height: 100%;
+
+    pointer-events: auto;
+    touch-action: auto;
+  }
+  /* =========================================
+   ABOUT HERO — MOBILE
+   ========================================= */
+
+.about-hero {
+  aspect-ratio: auto;
+  min-height: 620px;
+}
+
+/* Background image */
+.about-hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Whole About hero content */
+.about-hero-inner {
+  max-width: 100%;
+  padding: 80px 20px 40px;
+  transform: none;
+}
+
+/* ABOUT ASME @ UIC */
+.about-hero-inner h1 {
+  font-size: 44px;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+
+  white-space: normal;
+
+  max-width: 350px;
+  margin: 0 auto 24px;
+}
+
+/* Description */
+.about-hero-inner p {
+  font-size: 18px;
+  line-height: 1.5;
+
+  max-width: 330px;
+
+  margin: 0 auto 28px;
+
+  transform: none;
+}
+
+/* Join ASME button */
+.about-hero-inner .btn {
+  min-width: 0;
+  width: 100%;
+  max-width: 310px;
+
+  padding: 14px 24px;
+
+  font-size: 18px;
+
+  transform: none;
+}
+/* =========================================
+   ABOUT STATS — MOBILE
+   ========================================= */
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+
+  width: 100%;
+  max-width: 340px;
+
+  margin: 0 auto;
+}
+
+
+/* Each stat card */
+.about-stat {
+  width: 100%;
+  height: 155px;
+  min-height: 155px;
+
+  padding: 18px 14px;
+
+  flex: none;
+}
+
+
+/* Remove desktop staircase on mobile */
+.about-stat:nth-child(1),
+.about-stat:nth-child(2),
+.about-stat:nth-child(3),
+.about-stat:nth-child(4) {
+  --y: 0px;
+}
+
+
+/* Numbers */
+.about-stat b {
+  font-size: 48px;
+}
+
+
+/* 130K+ needs slightly smaller text */
+.about-stat:nth-child(4) b {
+  font-size: 42px;
+}
+
+
+/* Labels */
+.about-stat span {
+  font-size: 13px;
+}
+
+
+/* Button no longer needs huge staircase spacing */
+.about-fast > .container > .center {
+  margin-top: 32px !important;
+}
+/* =========================================
+   BOARD PAGE — MOBILE
+   ========================================= */
+
+/* Stop horizontal overflow */
+.board-page {
+  overflow-x: hidden;
+}
+
+
+/* Board hero */
+.board-page .board-hero {
+  min-height: auto;
+  padding: 42px 18px 34px;
+}
+
+.board-page .board-hero h1 {
+  font-size: 38px;
+  line-height: 1;
+  margin-bottom: 22px;
+}
+
+.board-page .board-hero p {
+  width: 100%;
+  max-width: 340px;
+
+  margin: 0 auto 24px;
+
+  font-size: 15px;
+  line-height: 1.5;
+
+  padding: 0;
+}
+
+
+/* Divider */
+.board-page .gray-line {
+  width: calc(100% - 36px);
+  max-width: 100%;
+  margin: 24px auto 0;
+}
+
+
+/* Board section */
+.board-members {
+  padding: 36px 18px 48px;
+}
+
+
+/* ALL Board section titles */
+.board-members h2,
+.engagement-title,
+.finance-title,
+.media-title,
+.technical-title,
+.outreach-title,
+.team-lead-title {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0 0 28px;
+
+  font-size: 36px;
+  line-height: 1.1;
+
+  text-align: left;
+
+  transform: none;
+}
+
+
+/* All member grids */
+.administration-grid,
+.engagement-grid,
+.finance-grid,
+.media-grid,
+.technical-grid,
+.outreach-grid,
+.team-lead-grid {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0;
+
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: 42px;
+}
+
+
+/* Individual board member card */
+.administration,
+.engagement,
+.finance,
+.media,
+.technical,
+.outreach,
+.team-lead {
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* Headshots */
+.admin-person,
+.engagement-person,
+.finance-person,
+.media-person,
+.technical-person,
+.outreach-person,
+.team-lead-person {
+  width: 150px;
+  height: 150px;
+
+  margin-bottom: 14px;
+}
+
+
+/* Names */
+.administration h3,
+.engagement h3,
+.finance h3,
+.media h3,
+.technical h3,
+.outreach h3,
+.team-lead h3 {
+  font-size: 18px;
+}
+
+
+/* Bios */
+.administration .bio {
+  max-width: 330px;
+
+  font-size: 14px;
+  line-height: 1.55;
+}
+/* Center Board sections after Administration */
+
+.engagement-title,
+.finance-title,
+.media-title,
+.technical-title,
+.outreach-title,
+.team-lead-title {
+  width: 100%;
+  max-width: 320px;
+
+  margin: 0 auto 28px;
+
+  transform: none;
+  text-align: left;
+}
+
+
+.engagement-grid,
+.finance-grid,
+.media-grid,
+.technical-grid,
+.outreach-grid,
+.team-lead-grid {
+  width: 100%;
+  max-width: 320px;
+
+  margin: 0 auto;
+
+  grid-template-columns: 1fr;
+  gap: 42px;
+}
+/* =========================================
+   EVENTS HERO IMAGE — MOBILE
+   ========================================= */
+
+.events-hero .container {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.events-media {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.events-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+/* =========================================
+   SPONSORS PAGE — MOBILE
+   ========================================= */
+
+/* Hero */
+.sponsors-page-head > .container {
+  aspect-ratio: auto;
+  height: 720px;
+  min-height: 720px;
+}
+
+
+/* Hero background */
+.sponsors-page-head-bg {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: 45% center;
+}
+
+
+/* Hero text group */
+.sponsors-page-tophalf {
+  top: 34%;
+  left: 50%;
+
+  width: 100%;
+  max-width: 350px;
+
+  padding: 0 18px;
+
+  transform: translate(-50%, -50%);
+}
+
+
+/* Main title */
+.sponsors-page-tophalf h1 {
+  font-size: 40px;
+  line-height: 1.05;
+}
+
+
+
+/* Description */
+.sponsors-page-tophalf p {
+  max-width: 310px;
+
+  margin: 20px auto 0;
+
+  font-size: 15px;
+  line-height: 1.5;
+
+  transform: none;
+}
+
+
+/* Stats bar */
+.sponsors-page-head .stats-bar {
+  left: 50%;
+  bottom: 30px;
+
+  width: calc(100% - 40px);
+  max-width: 340px;
+
+  transform: translateX(-50%);
+}
+
+/* 2 x 2 mobile stats */
+.sponsors-page-head .stats-bar > .container {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+/* Sponsor content spacing */
+.sponsors-page {
+  padding: 48px 18px 64px;
+}
+
+
+/* Why Sponsor heading */
+.sponsor-benefits > h2 {
+  font-size: 34px;
+  line-height: 1.1;
+}
+
+
+/* Why Sponsor description */
+.sponsor-benefits > p {
+  font-size: 14px;
+  max-width: 330px;
+
+  margin: 4px auto 18px;
+}
+
+
+/* Cards */
+.sponsor-benefits,
+.sponsor-tiers {
+  width: 100%;
+  max-width: 340px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  grid-template-columns: 1fr;
+}
+
+
+/* Sponsorship tier heading */
+.sponsor-tiers-head {
+  max-width: 340px;
+}
+
+.sponsor-tiers-head h2 {
+  font-size: 36px;
+}
+/* Small-phone Board adjustment */
+@media (max-width: 380px) {
+
+  .board-members h2,
+  .engagement-title,
+  .finance-title,
+  .media-title,
+  .technical-title,
+  .outreach-title,
+  .team-lead-title {
+    width: 100%;
+  max-width: 280px;
+
+  margin: 0 auto 24px;
+
+  text-align: left;
+  transform: none;
+  }
+
+  .administration-grid,
+  .engagement-grid,
+  .finance-grid,
+  .media-grid,
+  .technical-grid,
+  .outreach-grid,
+  .team-lead-grid {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .administration,
+  .engagement,
+  .finance,
+  .media,
+  .technical,
+  .outreach,
+  .team-lead {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+@media (max-width: 330px) {
+
+  .board-members h2,
+  .engagement-title,
+  .finance-title,
+  .media-title,
+  .technical-title,
+  .outreach-title,
+  .team-lead-title {
+    width: 100%;
+    max-width: 240px;
+
+    margin: 0 auto 24px;
+
+    text-align: left;
+    transform: none;
+  }
+
+
+  .administration-grid,
+  .engagement-grid,
+  .finance-grid,
+  .media-grid,
+  .technical-grid,
+  .outreach-grid,
+  .team-lead-grid {
+    width: 100%;
+    max-width: 240px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    justify-items: start;
+  }
+
+
+  .administration,
+  .engagement,
+  .finance,
+  .media,
+  .technical,
+  .outreach,
+  .team-lead {
+    width: 100%;
+    max-width: 240px;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+@media (max-width: 440px) and (min-width: 381px) {
+
+  .engagement-title,
+  .finance-title,
+  .media-title,
+  .technical-title,
+  .outreach-title,
+  .team-lead-title {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 28px;
+    text-align: left;
+    transform: none;
+  }
+
+  .engagement-grid,
+  .finance-grid,
+  .media-grid,
+  .technical-grid,
+  .outreach-grid,
+  .team-lead-grid {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 42px;
+  }
+
+  .engagement,
+  .finance,
+  .media,
+  .technical,
+  .outreach,
+  .team-lead {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+}
+
+
+
 }
