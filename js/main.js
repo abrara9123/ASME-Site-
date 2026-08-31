@@ -459,6 +459,14 @@ if (sponsorModal && sponsorButtons.length) {
 }
 /* ---- Sponsorship form submission ---- */
 const sponsorForm = document.getElementById('sponsorForm');
+const sponsorSuccess =
+  document.getElementById('sponsorSuccess');
+
+const successTicketId =
+  document.getElementById('successTicketId');
+
+const sponsorSuccessClose =
+  document.getElementById('sponsorSuccessClose');
 if (sponsorForm) {
   sponsorForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -492,14 +500,35 @@ if (sponsorForm) {
           result.error || 'Unable to send sponsorship request.'
         );
       }
-      alert(
-        `Request sent successfully!\nTicket ID: ${result.ticketId}`
-      );
       sponsorForm.reset();
-      if (sponsorModal) {
-        sponsorModal.classList.remove('open');
-      }
-      document.body.style.overflow = '';
+
+/* Hide form */
+sponsorForm.style.display = 'none';
+
+/* Hide original heading + intro */
+const modalHeading =
+  sponsorModal?.querySelector('.sponsor-modal-box > h2');
+
+const modalIntro =
+  sponsorModal?.querySelector('.sponsor-modal-intro');
+
+if (modalHeading) {
+  modalHeading.style.display = 'none';
+}
+
+if (modalIntro) {
+  modalIntro.style.display = 'none';
+}
+
+/* Add ticket number */
+if (successTicketId) {
+  successTicketId.textContent = result.ticketId;
+}
+
+/* Show success screen */
+if (sponsorSuccess) {
+  sponsorSuccess.classList.add('show');
+}
     } catch (error) {
       console.error('Sponsorship request error:', error);
       alert(
@@ -511,6 +540,31 @@ if (sponsorForm) {
     }
   });
 }
+});
+
+sponsorSuccessClose?.addEventListener('click', () => {
+
+  sponsorSuccess?.classList.remove('show');
+
+  sponsorForm.style.display = '';
+
+  const modalHeading =
+    sponsorModal?.querySelector('.sponsor-modal-box > h2');
+
+  const modalIntro =
+    sponsorModal?.querySelector('.sponsor-modal-intro');
+
+  if (modalHeading) {
+    modalHeading.style.display = '';
+  }
+
+  if (modalIntro) {
+    modalIntro.style.display = '';
+  }
+
+  sponsorModal?.classList.remove('open');
+
+  document.body.style.overflow = '';
 });
 
 /* ---- Smooth page-to-page transition ---- */

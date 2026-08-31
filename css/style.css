@@ -1294,6 +1294,160 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .tier-card--featured{ transform: none; }
 }
 /* =========================================
+   SPONSOR SUCCESS MESSAGE
+   ========================================= */
+
+.sponsor-success {
+  display: none;
+  text-align: center;
+  padding: 18px 0 6px;
+}
+
+.sponsor-success.show {
+  display: block;
+}
+
+.sponsor-success-icon {
+  width: 72px;
+  height: 72px;
+
+  margin: 0 auto 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+
+  font-size: 38px;
+  font-weight: 700;
+
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.sponsor-success h2 {
+  margin: 0 0 12px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+
+  color: #fff;
+}
+
+.sponsor-success > p {
+  max-width: 420px;
+
+  margin: 0 auto 26px;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  color: #a1a1aa;
+}
+
+.sponsor-ticket-box {
+  max-width: 360px;
+
+  margin: 0 auto 28px;
+  padding: 16px 18px;
+
+  background: #111;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.sponsor-ticket-box span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+
+  color: #777;
+}
+
+.sponsor-ticket-box strong {
+  font-size: 16px;
+  color: var(--accent);
+
+  word-break: break-word;
+}
+
+.sponsor-success-close {
+  width: 100%;
+  max-width: 260px;
+
+  padding: 14px 24px;
+
+  font-size: 16px;
+}
+.sponsor-success.show .sponsor-success-icon {
+  animation: successPop 0.45s ease forwards;
+}
+
+.sponsor-success.show .sponsor-success-icon::after {
+  content: "✓";
+  opacity: 0;
+  transform: scale(0.5);
+  animation: checkFade 0.3s ease forwards;
+  animation-delay: 0.25s;
+}
+
+.sponsor-success-icon {
+  position: relative;
+  color: transparent; /* hides the original checkmark text */
+}
+.sponsor-success-icon::after {
+  content: "✓";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  color: #fff;
+
+  opacity: 0;
+
+  transform: translate(-50%, -50%) scale(0.5);
+
+  animation: checkFade 0.3s ease forwards;
+  animation-delay: 0.25s;
+}
+@keyframes successPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes checkFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+/* =========================================
    SPONSORSHIP POPUP
    ========================================= */
 .sponsor-modal {
