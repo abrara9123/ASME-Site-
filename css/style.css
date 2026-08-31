@@ -2516,6 +2516,9 @@ button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
+html {
+  scroll-behavior: smooth;
+}
 /*
    FINAL MOBILE NAVBAR
    Keep this at the bottom of style.css
