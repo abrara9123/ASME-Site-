@@ -2673,6 +2673,21 @@ button:focus-visible {
 html {
   scroll-behavior: smooth;
 }
+/* Industry logos — desktop/tablet */
+.logo-set img {
+  width: auto;
+  height: auto;
+
+  max-width: 170px;
+  max-height: 90px;
+
+  object-fit: contain;
+}
+
+.logo-set {
+  gap: 40px;
+  padding-right: 40px;
+}
 /*
    FINAL MOBILE NAVBAR
    Keep this at the bottom of style.css
@@ -2686,6 +2701,26 @@ html {
   /* =========================================
      TABLET NAVBAR
      ========================================= */
+     /* Industry logos — mobile */
+.logo-set img {
+  width: auto;
+  height: auto;
+
+  max-width: 120px;
+  max-height: 65px;
+
+  object-fit: contain;
+}
+
+.logo-set {
+  gap: 28px;
+  padding-right: 28px;
+}
+
+.logo-marquee {
+  width: 100%;
+  max-width: 100%;
+}
 
   .hero-v2 .site-nav .container {
     height: 76px;
@@ -2771,6 +2806,27 @@ html {
   /* =========================================
      HOME HERO — TABLET
      ========================================= */
+
+     /* Industry logos — mobile */
+.logo-set img {
+  width: auto;
+  height: auto;
+
+  max-width: 120px;
+  max-height: 65px;
+
+  object-fit: contain;
+}
+
+.logo-set {
+  gap: 28px;
+  padding-right: 28px;
+}
+
+.logo-marquee {
+  width: 100%;
+  max-width: 100%;
+}
 
   .hero-v2 {
     aspect-ratio: auto;
@@ -2987,6 +3043,7 @@ html {
   /* =========================================
    HOME HERO — MOBILE
    ========================================= */
+   
 
 .hero-v2 {
   aspect-ratio: auto;
@@ -3529,6 +3586,26 @@ html {
 }
 /* Small-phone Board adjustment */
 @media (max-width: 380px) {
+  /* Industry logos — mobile */
+.logo-set img {
+  width: auto;
+  height: auto;
+
+  max-width: 120px;
+  max-height: 65px;
+
+  object-fit: contain;
+}
+
+.logo-set {
+  gap: 28px;
+  padding-right: 28px;
+}
+
+.logo-marquee {
+  width: 100%;
+  max-width: 100%;
+}
 
   .board-members h2,
   .engagement-title,
@@ -3623,6 +3700,26 @@ html {
 
 }
 @media (max-width: 440px) and (min-width: 381px) {
+  /* Industry logos — mobile */
+.logo-set img {
+  width: auto;
+  height: auto;
+
+  max-width: 120px;
+  max-height: 65px;
+
+  object-fit: contain;
+}
+
+.logo-set {
+  gap: 28px;
+  padding-right: 28px;
+}
+
+.logo-marquee {
+  width: 100%;
+  max-width: 100%;
+}
 
   .engagement-title,
   .finance-title,
