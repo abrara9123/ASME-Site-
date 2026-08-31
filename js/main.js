@@ -540,49 +540,93 @@ if (sponsorSuccess) {
     }
   });
 }
-});
 
 sponsorSuccessClose?.addEventListener('click', () => {
 
-  sponsorSuccess?.classList.remove('show');
-
-  sponsorForm.style.display = '';
-
-  const modalHeading =
-    sponsorModal?.querySelector('.sponsor-modal-box > h2');
-
-  const modalIntro =
-    sponsorModal?.querySelector('.sponsor-modal-intro');
-
-  if (modalHeading) {
-    modalHeading.style.display = '';
-  }
-
-  if (modalIntro) {
-    modalIntro.style.display = '';
-  }
-
-  sponsorModal?.classList.remove('open');
-
-  document.body.style.overflow = '';
-});
-
-/* ---- Smooth page-to-page transition ---- */
-(() => {
-  const beginPageTransition = (url) => {
-    document.body.classList.add('page-transitioning');
-    window.setTimeout(() => { window.location.href = url; }, 420);
-  };
-
-  document.addEventListener('click', (event) => {
-    const link = event.target.closest('a[href]');
-    if (!link || event.defaultPrevented) return;
-    const href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank') return;
-    const destination = new URL(href, window.location.href);
-    if (destination.origin !== window.location.origin || destination.pathname === window.location.pathname && destination.hash) return;
-    event.preventDefault();
-    beginPageTransition(destination.href);
-  });
-})();
-
+     sponsorSuccess?.classList.remove('show');
+   
+     if (sponsorForm) {
+       sponsorForm.style.display = '';
+     }
+   
+     const modalHeading =
+       sponsorModal?.querySelector('.sponsor-modal-box > h2');
+   
+     const modalIntro =
+       sponsorModal?.querySelector('.sponsor-modal-intro');
+   
+     if (modalHeading) {
+       modalHeading.style.display = '';
+     }
+   
+     if (modalIntro) {
+       modalIntro.style.display = '';
+     }
+   
+     sponsorModal?.classList.remove('open');
+   
+     document.body.style.overflow = '';
+   });
+   
+   
+   }); // END DOMContentLoaded
+   
+   
+   /* =========================================
+      PAGE WIPE — ALL INTERNAL PAGES
+      ========================================= */
+   
+   (() => {
+   
+     const beginPageTransition = (url) => {
+   
+       if (document.body.classList.contains('page-transitioning')) {
+         return;
+       }
+   
+       document.body.classList.add('page-transitioning');
+   
+       setTimeout(() => {
+         window.location.href = url;
+       }, 500);
+     };
+   
+   
+     document.addEventListener('click', (event) => {
+   
+       const link = event.target.closest('a[href]');
+   
+       if (!link) return;
+   
+       const href = link.getAttribute('href');
+   
+       if (
+         !href ||
+         href.startsWith('#') ||
+         href.startsWith('mailto:') ||
+         href.startsWith('tel:') ||
+         link.target === '_blank'
+       ) {
+         return;
+       }
+   
+       const destination =
+         new URL(href, window.location.href);
+   
+       if (destination.origin !== window.location.origin) {
+         return;
+       }
+   
+       if (
+         destination.pathname === window.location.pathname &&
+         destination.hash
+       ) {
+         return;
+       }
+   
+       event.preventDefault();
+   
+       beginPageTransition(destination.href);
+     });
+   
+   })();

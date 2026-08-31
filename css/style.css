@@ -3759,7 +3759,324 @@ html {
     margin: 0 auto;
   }
 }
-
-
-
 }
+/* =========================================
+   SHORT DESKTOP / MACBOOK PRO
+   ========================================= */
+
+   @media (min-width: 981px) and (max-height: 1100px) {
+
+     /* Smaller desktop navbar */
+     .hero-v2 .site-nav {
+       height: 105px;
+     }
+   
+     .hero-v2 .site-nav .container {
+       max-width: 1250px;
+       padding: 0 32px;
+     }
+   
+     .hero-v2 .brand-logo {
+       width: 100px;
+       height: auto;
+     }
+   
+     .hero-v2 .nav-links {
+       gap: 28px;
+     }
+   
+     .hero-v2 .nav-links a {
+       font-size: 16px;
+     }
+   
+     .hero-v2 .nav-actions .btn-sm {
+       padding: 13px 28px;
+       font-size: 16px;
+     }
+   
+   
+     /* Whole hero */
+     .hero-v2 {
+       aspect-ratio: auto;
+       min-height: 100vh;
+     }
+   
+   
+     /* Bring content down below navbar */
+     .hero-v2-inner {
+       padding: 135px 30px 0;
+     }
+   
+   
+     /* ALL MAJORS WELCOME */
+     .hero-v2-inner .eyebrow {
+       font-size: 13px;
+       padding: 7px 26px;
+       transform: none;
+     }
+   
+   
+     /* Main headline */
+     .hero-v2-inner h1 {
+       font-size: 64px;
+       line-height: 1.02;
+   
+       max-width: 1100px;
+   
+       margin: 24px auto 0;
+     }
+   
+   
+     /* Description */
+     .hero-v2-inner p.lead {
+       font-size: 18px;
+       line-height: 1.5;
+   
+       max-width: 760px;
+   
+       margin: 28px auto 0;
+   
+       transform: none;
+     }
+   
+   
+     /* Join button */
+     .hero-v2-inner .hero-cta {
+       margin-top: 32px;
+       transform: none;
+     }
+   
+     .hero-v2-inner .hero-cta .btn {
+       min-width: 320px;
+   
+       padding: 15px 32px;
+   
+       font-size: 20px;
+     }
+   
+   
+     /* Stats */
+     .stats-bar {
+       width: min(800px, calc(100% - 60px));
+   
+       margin: 45px auto 30px;
+   
+       border-radius: 12px;
+     }
+   
+     .stats-bar .stat {
+       min-height: 100px;
+     }
+   
+     .stats-bar .stat b {
+       font-size: 30px;
+     }
+   
+     .stats-bar .stat span {
+       font-size: 14px;
+     }
+     /* =========================================
+   ABOUT — SHORT DESKTOP / MACBOOK
+   ========================================= */
+
+/* Navbar */
+.about-nav {
+     height: 105px;
+   }
+   
+   .about-nav .container {
+     height: 105px;
+     max-width: 1250px;
+     padding: 0 32px;
+   }
+   
+   
+   /* Hero fills remaining screen */
+   .about-hero {
+     aspect-ratio: auto;
+     height: calc(100vh - 105px);
+     min-height: 650px;
+   }
+   
+   
+   /* Entire content group */
+   .about-hero-inner {
+     max-width: 1100px;
+     padding: 0 30px;
+   
+     transform: translateY(-10px);
+   }
+   
+   
+   /* ABOUT ASME @ UIC */
+   .about-hero-inner h1 {
+     font-size: 70px;
+     line-height: 1;
+   
+     margin: 0 0 34px;
+   
+     white-space: nowrap;
+   }
+   
+   
+   /* Description */
+   .about-hero-inner p {
+     max-width: 780px;
+   
+     margin: 0 auto 38px;
+   
+     font-size: 21px;
+     line-height: 1.5;
+   
+     transform: none;
+   }
+   
+   
+   /* Join button */
+   .about-hero-inner .btn {
+     min-width: 340px;
+   
+     padding: 15px 34px;
+   
+     font-size: 20px;
+   
+     transform: none;
+   }
+   /* Board titles — short desktop only */
+.media-title,
+.technical-title,
+.outreach-title {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto 24px;
+
+  text-align: left;
+  transform: none;
+}
+/* =========================================
+   SPONSORS — SHORT DESKTOP / MACBOOK
+   ========================================= */
+
+/* NAVBAR */
+.sponsors-nav {
+     height: 100px;
+   }
+   
+   .sponsors-nav .container {
+     width: 100%;
+     max-width: 1280px;
+     height: 100px;
+   
+     margin: 0 auto;
+     padding: 0 28px;
+   
+     display: grid;
+     grid-template-columns: 1fr auto 1fr;
+     align-items: center;
+   }
+   
+   .sponsors-nav .brand {
+     justify-self: start;
+   }
+   
+   .sponsors-nav .brand-logo {
+     width: 95px;
+     height: auto;
+   }
+   
+   .sponsors-nav .nav-links {
+     justify-self: center;
+     gap: 34px;
+   }
+   
+   .sponsors-nav .nav-links a {
+     font-size: 16px;
+   }
+   
+   .sponsors-nav .nav-actions {
+     justify-self: end;
+   }
+   
+   .sponsors-nav .nav-actions .btn-sm {
+     padding: 13px 28px;
+     font-size: 16px;
+   }
+   
+   
+   /* HERO SIZE */
+   .sponsors-page-head > .container {
+     aspect-ratio: auto;
+   
+     height: calc(100vh - 100px);
+     min-height: 720px;
+     max-height: 850px;
+   }
+   
+   
+   /* HERO IMAGE */
+   .sponsors-page-head-bg {
+     object-position: center center;
+   }
+   
+   
+   /* TITLE + DESCRIPTION GROUP */
+   .sponsors-page-tophalf {
+     top: 40%;
+     left: 50%;
+   
+     width: min(850px, calc(100% - 60px));
+   
+     transform: translate(-50%, -50%);
+   }
+   
+   
+   /* PARTNER WITH ASME @ UIC */
+   .sponsors-page-tophalf h1 {
+     font-size: 70px;
+     line-height: 0.98;
+     letter-spacing: -0.02em;
+   }
+
+   .sponsors-page-tophalf h1 span {
+     display: block;
+   }
+   
+   
+   /* DESCRIPTION */
+   .sponsors-page-tophalf p {
+     max-width: 720px;
+   
+     margin: 38px auto 0;
+   
+     font-size: 20px;
+     line-height: 1.55;
+   
+     word-spacing: normal;
+   
+     transform: none;
+   }
+   
+   
+   /* STATS BAR */
+   .sponsors-page-head .stats-bar {
+     left: 50%;
+     bottom: 130px;
+   
+     width: min(800px, calc(100% - 60px));
+   
+     transform: translateX(-50%);
+   }
+   
+   .sponsors-page-head .stat {
+     min-height: 105px;
+   }
+   
+   .sponsors-page-head .stat b {
+     font-size: 30px;
+   }
+   
+   .sponsors-page-head .stat span {
+     font-size: 14px;
+   }
+   }
