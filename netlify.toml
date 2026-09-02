@@ -1,0 +1,7 @@
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/sponsor-ticket"
+  to = "/.netlify/functions/sponsor-ticket"
+  status = 200
