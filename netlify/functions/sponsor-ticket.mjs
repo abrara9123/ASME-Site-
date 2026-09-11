@@ -2,8 +2,9 @@ import crypto from 'crypto';
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const SENDER_EMAIL = process.env.SENDER_EMAIL;
-const ADMIN_EMAIL =
-  process.env.ADMIN_EMAIL || 'suverymaster9123@gmail.com';
+const ADMIN_EMAILS = process.env.ADMIN_EMAILS
+  .split(',')
+  .map(email => email.trim());
 
 
 async function createTicket(data) {
@@ -21,12 +22,8 @@ async function createTicket(data) {
       name: 'ASME @ UIC'
     },
 
-    to: [
-      {
-        email: ADMIN_EMAIL
-      }
-    ],
-
+    to: ADMIN_EMAILS.map(email => ({ email })),
+    
     replyTo: {
       email: data.email,
       name: data.name
@@ -42,7 +39,6 @@ async function createTicket(data) {
       <p><b>Name:</b> ${data.name}</p>
       <p><b>Email:</b> ${data.email}</p>
       <p><b>Company:</b> ${data.company}</p>
-      <p><b>Phone:</b> ${data.phone || 'Not provided'}</p>
       <p><b>Tier:</b> ${data.tier || 'Not specified'}</p>
 
       <p>

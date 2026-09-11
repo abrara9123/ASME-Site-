@@ -25,7 +25,7 @@ async function createTicket(data) {
     to: ADMIN_EMAILS.map(email => ({ email })),
     replyTo: { email: data.email, name: data.name },
     subject: `Sponsorship inquiry — ${data.tier || 'General'} — ${ticketId}`,
-    htmlContent: `<h2>New sponsorship ticket</h2><p><b>Ticket ID:</b> ${ticketId}</p><p><b>Name:</b> ${data.name}</p><p><b>Email:</b> ${data.email}</p><p><b>Company:</b> ${data.company}</p><p><b>Phone:</b> ${data.phone || 'Not provided'}</p><p><b>Tier:</b> ${data.tier || 'Not specified'}</p><p><b>Message:</b><br>${(data.message || 'None').replace(/\n/g,'<br>')}</p>`
+    htmlContent: `<h2>New sponsorship ticket</h2><p><b>Ticket ID:</b> ${ticketId}</p><p><b>Name:</b> ${data.name}</p><p><b>Email:</b> ${data.email}</p><p><b>Company:</b> ${data.company}</p><p><p><b>Tier:</b> ${data.tier || 'Not specified'}</p><p><b>Message:</b><br>${(data.message || 'None').replace(/\n/g,'<br>')}</p>`
   };
   const response = await fetch('https://api.brevo.com/v3/smtp/email', { method:'POST', headers:{'api-key':BREVO_API_KEY,'Content-Type':'application/json'}, body:JSON.stringify(payload) });
   if (!response.ok) throw new Error(await response.text());
