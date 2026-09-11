@@ -8,7 +8,9 @@ const PORT = process.env.PORT || 8000;
 const ROOT = __dirname;
 const BREVO_API_KEY = process.env.BREVO_API_KEY;
 const SENDER_EMAIL = process.env.SENDER_EMAIL;
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'suverymaster9123@gmail.com';
+const ADMIN_EMAILS = process.env.ADMIN_EMAILS
+  .split(',')
+  .map(email => email.trim());
 
 function sendJson(res, status, data) {
   res.writeHead(status, {'Content-Type':'application/json'});
@@ -20,7 +22,7 @@ async function createTicket(data) {
   const ticketId = `ASME-${Date.now().toString(36).toUpperCase()}-${crypto.randomBytes(2).toString('hex').toUpperCase()}`;
   const payload = {
     sender: { email: SENDER_EMAIL, name: 'ASME @ UIC' },
-    to: [{ email: ADMIN_EMAIL }],
+    to: ADMIN_EMAILS.map(email => ({ email })),
     replyTo: { email: data.email, name: data.name },
     subject: `Sponsorship inquiry — ${data.tier || 'General'} — ${ticketId}`,
     htmlContent: `<h2>New sponsorship ticket</h2><p><b>Ticket ID:</b> ${ticketId}</p><p><b>Name:</b> ${data.name}</p><p><b>Email:</b> ${data.email}</p><p><b>Company:</b> ${data.company}</p><p><b>Phone:</b> ${data.phone || 'Not provided'}</p><p><b>Tier:</b> ${data.tier || 'Not specified'}</p><p><b>Message:</b><br>${(data.message || 'None').replace(/\n/g,'<br>')}</p>`
