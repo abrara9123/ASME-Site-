@@ -1,10 +1,4 @@
-/* ============================================================
-   UIC ASME — Design System
-   A dark, technical "drafting table" aesthetic: blueprint grids,
-   corner registration marks, and engineering-drawing annotations.
-   ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root{
   --bg: #111111;
@@ -21,15 +15,12 @@
   --accent-soft: rgba(255,31,45,0.14);
   --accent-line: rgba(255,31,45,0.38);
   --red: #e5484d;
-
   --font-display: 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-
   --container: 1120px;
   --radius: 16px;
   --radius-sm: 8px;
-
   --ease: cubic-bezier(.22,.68,0,1);
 }
 
@@ -62,7 +53,6 @@ p{ margin:0; }
 
 :focus-visible{ outline: 2px solid var(--accent-bright); outline-offset: 3px; border-radius: 4px; }
 
-/* ---------- Blueprint grid backdrop ---------- */
 .blueprint-bg{
   position: relative;
   background-image:
@@ -78,7 +68,6 @@ p{ margin:0; }
   pointer-events:none;
 }
 
-/* Corner registration marks — signature motif */
 .crop-marks{ position:relative; }
 .crop-marks::before,
 .crop-marks::after,
@@ -109,7 +98,6 @@ p{ margin:0; }
   background: var(--accent-line);
 }
 
-/* ---------- Nav ---------- */
 .site-nav{
   position: absolute;
   top: 0;
@@ -178,7 +166,7 @@ p{ margin:0; }
 .nav-toggle.open span::before{ top:0; transform: rotate(45deg); background:var(--text); }
 .nav-toggle.open span::after{ top:0; transform: rotate(-45deg); background:var(--text); }
 
-/* ---------- Buttons ---------- */
+
 .btn{
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
   font-family: var(--font-body); font-weight:600; font-size:15px;
@@ -201,7 +189,6 @@ p{ margin:0; }
 .btn-sm{ padding:8px 15px; font-size:13px; }
 .btn-block{ width:100%; }
 
-/* ---------- Hero ---------- */
 .hero{ position:relative; padding: 84px 0 96px; overflow:hidden; }
 .hero-grid{ display:grid; grid-template-columns: 1.05fr 0.95fr; gap:56px; align-items:center; }
 .hero h1{ font-size: clamp(40px, 5.6vw, 66px); font-weight:700; margin-top:18px; }
@@ -223,7 +210,7 @@ p{ margin:0; }
 }
 .hero-media .tag i{ width:6px; height:6px; border-radius:50%; background:#3ddc84; box-shadow:0 0 0 3px rgba(61,220,132,0.18); }
 
-/* ---------- Sections ---------- */
+
 section{ padding: 36px 0; }
 #about{ padding-top: 40px; padding-bottom: 16px; }
 #about + section{ padding-top: 16px; }
@@ -248,7 +235,7 @@ section{ padding: 36px 0; }
 
 .divider{ height:1px; background: linear-gradient(90deg, var(--border), transparent); }
 
-/* ---------- Cards ---------- */
+
 .card{
   background: var(--surface);
   border: 1px solid var(--border);
@@ -262,7 +249,7 @@ section{ padding: 36px 0; }
 .grid-4{ grid-template-columns: repeat(4,1fr); }
 .grid-2{ grid-template-columns: repeat(2,1fr); }
 
-/* Event card */
+
 .event-card{ overflow:hidden; display:flex; flex-direction:column; }
 .event-card .thumb{ position:relative; aspect-ratio: 16/10; overflow:hidden; }
 .event-card .thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .5s var(--ease); }
@@ -287,62 +274,19 @@ section{ padding: 36px 0; }
 .event-card .go{ display:flex; align-items:center; gap:6px; font-size:13.5px; font-weight:600; color: var(--accent-bright); margin-top:4px; transition: gap .2s var(--ease); }
 .event-card:hover .go{ gap:10px; }
 
-/* Feature / info card */
+
 .info-card{ padding:26px 24px; }
 .info-card .num{ font-family: var(--font-mono); font-size:12px; color: var(--accent-bright); letter-spacing:.06em; }
 .info-card h3{ font-size:19px; margin-top:14px; }
 .info-card p{ color: var(--text-muted); font-size:14.5px; margin-top:10px; }
 
-/* ---------- Reveal-on-scroll ---------- */
+
 .reveal{ opacity:0; transform: translateY(22px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in{ opacity:1; transform: translateY(0); }
 .reveal-stagger.in > *{ transition-delay: calc(var(--i) * 70ms); }
 
-/* ---------- Tabs / filters ---------- */
-.filter-row{ display:flex; gap:10px; flex-wrap:wrap; }
-.filter-chip{
-  font-family: var(--font-mono); font-size:12.5px; letter-spacing:.04em;
-  padding:9px 16px; border-radius: 999px; border:1px solid var(--border-strong);
-  color: var(--text-muted); cursor:pointer; background:transparent;
-  transition: all .2s var(--ease);
-}
-.filter-chip:hover{ color:var(--text); border-color: rgba(255,255,255,0.35); }
-.filter-chip.active{ background: var(--accent); border-color: var(--accent); color:#fff; }
 
-/* ---------- Accordion (event detail) ---------- */
-.accordion{ border-top:1px solid var(--border); }
-.accordion-item{ border-bottom:1px solid var(--border); }
-.accordion-trigger{
-  width:100%; display:flex; align-items:center; justify-content:space-between;
-  padding:22px 4px; background:none; border:none; cursor:pointer; text-align:left;
-  color: var(--text); font-family: var(--font-display); font-size:16.5px; font-weight:600;
-}
-.accordion-trigger .idx{ font-family: var(--font-mono); font-size:12px; color: var(--accent-bright); margin-right:14px; font-weight:400; }
-.accordion-trigger .plus{ position:relative; width:18px; height:18px; flex:none; }
-.accordion-trigger .plus::before,.accordion-trigger .plus::after{
-  content:""; position:absolute; background: var(--text-muted); transition: transform .3s var(--ease), background .2s;
-}
-.accordion-trigger .plus::before{ left:0; top:8px; width:18px; height:1.5px; }
-.accordion-trigger .plus::after{ left:8px; top:0; width:1.5px; height:18px; }
-.accordion-item.open .accordion-trigger .plus::after{ transform: rotate(90deg); opacity:0; }
-.accordion-item.open .accordion-trigger .idx, .accordion-item.open .accordion-trigger{ color: var(--accent-bright); }
-.accordion-panel{ max-height:0; overflow:hidden; transition: max-height .38s var(--ease); }
-.accordion-panel-inner{ padding: 0 4px 24px 40px; color: var(--text-muted); font-size:14.5px; line-height:1.7; }
 
-/* ---------- Gallery / lightbox ---------- */
-.gallery-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:14px; }
-.gallery-item{ position:relative; border-radius:10px; overflow:hidden; cursor:zoom-in; border:1px solid var(--border); aspect-ratio:1; }
-.gallery-item img{ width:100%; height:100%; object-fit:cover; transition: transform .45s var(--ease); }
-.gallery-item:hover img{ transform: scale(1.08); }
-.gallery-item::after{ content:""; position:absolute; inset:0; background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.55)); opacity:0; transition:opacity .3s; }
-.gallery-item:hover::after{ opacity:1; }
-
-.lightbox{ position:fixed; inset:0; background: rgba(6,7,9,0.92); backdrop-filter: blur(6px); display:none; align-items:center; justify-content:center; z-index:1000; padding:40px; }
-.lightbox.open{ display:flex; }
-.lightbox img{ max-width:min(90vw,1000px); max-height:82vh; border-radius:10px; border:1px solid var(--border-strong); }
-.lightbox-close{ position:absolute; top:26px; right:32px; width:42px; height:42px; border-radius:50%; border:1px solid var(--border-strong); background: var(--surface); color:var(--text); font-size:18px; cursor:pointer; }
-
-/* ---------- Footer ---------- */
 footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; }
 .footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap:40px; }
 .footer-grid h5{ font-family: var(--font-mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color: var(--text-faint); margin-bottom:16px; }
@@ -351,19 +295,16 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .footer-grid a:hover{ color: var(--text); }
 .footer-bottom{ display:flex; justify-content:space-between; align-items:center; margin-top:48px; padding-top:24px; border-top:1px solid var(--border); font-size:12.5px; color: var(--text-faint); font-family: var(--font-mono); flex-wrap:wrap; gap:12px;}
 
-/* ---------- Page transition ---------- */
+
 @keyframes page-in {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- Utility ---------- */
+
 .mt-0{margin-top:0} .center{text-align:center}
 .badge{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:11.5px; padding:6px 12px; border-radius:999px; background:var(--surface-2); border:1px solid var(--border); color:var(--text-muted); }
 
-/* ============================================================
-   Landing page v2 — matches provided mockups
-   ============================================================ */
 
 .brand-logo{
   height: 42px;
@@ -371,7 +312,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   display: block;
 }
 
-/* Brand mark v2 (globe) */
+
 .brand-globe{
   width:34px; height:34px; border-radius:50%;
   border:1.5px solid var(--accent-bright);
@@ -392,7 +333,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 }
 .brand-word{ font-family: var(--font-display); font-weight:700; font-size:19px; color: var(--accent-bright); letter-spacing:.02em; }
 .brand-word small{ display:block; font-family: var(--font-mono); font-weight:400; font-size:9px; letter-spacing:.18em; color: var(--text-faint); text-transform:uppercase; margin-top:2px; }
-/* Hero v2 */
+
 .hero-v2{ position:relative; overflow:hidden; padding:0; aspect-ratio: 8/5; }
 .hero-v2-bg{
   position: absolute;
@@ -433,11 +374,9 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .hero-v2-inner {
   position: relative;
   z-index: 2;
-  /* Controls the WHOLE content group's vertical position */
   padding: 180px 0 0;
   text-align: center;
 }
-/* ALL MAJORS WELCOME */
 .hero-v2-inner .eyebrow {
   justify-content: center;
   font-family: 'Inter', sans-serif;
@@ -452,7 +391,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   border-radius: 999px;
   width: fit-content;
   margin: 0 auto;
-  /* REMOVE old -100px */
   transform: none;
 }
 .hero-v2-inner .eyebrow::before {
@@ -467,7 +405,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   text-transform: uppercase;
   letter-spacing: -0.01em;
   line-height: 1.05;
-  /* REMOVE old -95px */
   position: relative;
   top: 0;
 }
@@ -584,7 +521,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .logo-row .logos img[alt="BNSF Railway"]{ height: 40px; }
 .logo-row .logos img[alt="Milwaukee Tool"]{ height: 48px; }
 
-/* Why join cards */
 .why-grid {
   display: grid;
   grid-template-columns: repeat(3, 340px);
@@ -642,7 +578,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   line-height: 1.55;
 }
 
-/* What we do grid */
 .wwd-card{
   position:relative; border-radius: var(--radius); overflow:hidden; aspect-ratio: 16/11.5;
   border:1px solid var(--border);
@@ -654,7 +589,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .wwd-card h3{ font-size:19px; margin-bottom:6px; }
 .wwd-card p{ font-size:13.5px; color: var(--text-muted); max-width:90%; }
 
-/* Project teams tabs */
 .teams-section{ padding-bottom: 48px; }
 .teams-tabs{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:24px; }
 .team-tab{
@@ -713,7 +647,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   transition: transform 0.55s ease;
 }
 
-/* Calendar */
 .calendar-section{
   padding-top: 48px;
   padding-bottom: 56px;
@@ -744,7 +677,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   display: block;
   background: #fff;
 }
-/* Footer v2 — matches mockup */
+
 .footer-v2{
   border-top: 1px solid rgba(255,255,255,0.08);
   padding: 48px 0 24px;
@@ -803,7 +736,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   font-family: var(--font-body);
 }
 
-/* Component-specific responsive rules */
 @media (max-width: 980px) {
   #about .grid.grid-3 {
     max-width: 704px;
@@ -872,7 +804,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .grid-4{ grid-template-columns: repeat(2,1fr); }
   .grid-3{ grid-template-columns: repeat(2,1fr); }
   .footer-grid{ grid-template-columns: 1fr 1fr; }
-  .gallery-grid{ grid-template-columns: repeat(3,1fr); }
   .stats-bar .container{ grid-template-columns: repeat(2,1fr); }
   .stats-bar .stat:nth-child(3){ border-left:none; }
   .stats-bar .stat{ border-bottom:1px solid var(--border); }
@@ -898,14 +829,12 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .nav-toggle{ display:flex; }
   .nav-actions .btn-primary{ display:none; }
   .grid-3,.grid-4{ grid-template-columns: 1fr 1fr; }
-  .gallery-grid{ grid-template-columns: repeat(2,1fr); }
   .footer-grid{ grid-template-columns: 1fr; gap:28px; }
   section{ padding:44px 0; }
   .hero{ padding:56px 0 64px; }
 }
 @media (max-width: 480px){
   .grid-3,.grid-4,.grid-2{ grid-template-columns: 1fr; }
-  .gallery-grid{ grid-template-columns: repeat(2,1fr); }
   .hero-stats{ gap:22px; flex-wrap:wrap; }
   .stats-bar .container{ grid-template-columns: 1fr 1fr; }
   .footer-v2 .cols{ gap:32px; }
@@ -915,7 +844,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .calendar-box{ height: 280px; }
 }
 
-/* Events page */
 .events-hero{ padding: 56px 0 24px; }
 .events-hero-grid{
   display: grid;
@@ -958,9 +886,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .events-media{ order: -1; }
   .events-copy p{ max-width: none; }
 }
-/* =========================================
-   EVENTS — HOW TO JOIN
-   ========================================= */
+
 .events-join {
   padding: 0 0 64px;
   background: #111;
@@ -975,7 +901,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   border: 1px solid rgba(255,255,255,0.04);
   border-radius: 10px;
 }
-/* Title */
+
 .events-join-box h2 {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -985,11 +911,11 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   letter-spacing: -0.03em;
   color: #fff;
 }
-/* Red ASME @ UIC */
+
 .events-join-box h2 span {
   color: var(--accent);
 }
-/* Description */
+
 .events-join-box p {
   max-width: 610px;
   margin: 14px auto 0;
@@ -999,7 +925,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   line-height: 1.4;
   color: #8f8f96;
 }
-/* See Next Event button */
+
 .events-join-box .btn {
   margin-top: 20px;
   padding: 8px 9px;
@@ -1008,7 +934,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   font-weight: 700;
   border-radius: 5px;
 }
-/* Mobile */
+
 @media (max-width: 720px) {
   .events-join-box {
     padding: 36px 22px 28px;
@@ -1021,12 +947,11 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   }
 }
 
-/* Sponsors page */
 .sponsors-page-head {
   padding: 0;
   background: #111;
 }
-/* Same 8:5 proportions as About */
+
 .sponsors-page-head > .container {
   position: relative;
   width: 100%;
@@ -1038,7 +963,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   padding: 0;
   overflow: hidden;
 }
-/* Background image */
+
 .sponsors-page-head-bg {
   position: absolute;
   inset: 0;
@@ -1048,7 +973,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   object-position: center;
   z-index: 0;
 }
-/* ONLY bottom fade — same as About */
+
 .sponsors-page-head > .container::after {
   content: "";
   position: absolute;
@@ -1068,10 +993,8 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   top: 38%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* THIS is the part we changed */
   width: min(720px, 100%);
   text-align: center;
-  /* keeps the text above the image */
   z-index: 3;
 }
 .sponsors-page-tophalf h1 {
@@ -1310,59 +1233,44 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .sponsor-success-icon {
   width: 72px;
   height: 72px;
-
   margin: 0 auto 22px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
   background: var(--accent);
   color: #fff;
-
   font-size: 38px;
   font-weight: 700;
-
   opacity: 0;
   transform: scale(0.6);
 }
 
 .sponsor-success h2 {
   margin: 0 0 12px;
-
   font-family: 'Inter', sans-serif;
   font-size: 34px;
   font-weight: 700;
-
   color: #fff;
 }
 
 .sponsor-success > p {
   max-width: 420px;
-
   margin: 0 auto 26px;
-
   font-size: 15px;
   line-height: 1.6;
-
   color: #a1a1aa;
 }
 
 .sponsor-ticket-box {
   max-width: 360px;
-
   margin: 0 auto 28px;
   padding: 16px 18px;
-
   background: #111;
-
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 10px;
-
   display: flex;
   flex-direction: column;
-
   gap: 6px;
 }
 
@@ -1370,23 +1278,19 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: .1em;
-
   color: #777;
 }
 
 .sponsor-ticket-box strong {
   font-size: 16px;
   color: var(--accent);
-
   word-break: break-word;
 }
 
 .sponsor-success-close {
   width: 100%;
   max-width: 260px;
-
   padding: 14px 24px;
-
   font-size: 16px;
 }
 .sponsor-success.show .sponsor-success-icon {
@@ -1403,21 +1307,16 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 
 .sponsor-success-icon {
   position: relative;
-  color: transparent; /* hides the original checkmark text */
+  color: transparent; 
 }
 .sponsor-success-icon::after {
   content: "✓";
-
   position: absolute;
   top: 50%;
   left: 50%;
-
   color: #fff;
-
   opacity: 0;
-
   transform: translate(-50%, -50%) scale(0.5);
-
   animation: checkFade 0.3s ease forwards;
   animation-delay: 0.25s;
 }
@@ -1473,7 +1372,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   visibility: visible;
   pointer-events: auto;
 }
-/* Actual popup box */
+
 .sponsor-modal-box {
   position: relative;
   width: min(560px, 100%);
@@ -1488,7 +1387,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .sponsor-modal.open .sponsor-modal-box {
   transform: translateY(0) scale(1);
 }
-/* Close X */
+
 .sponsor-modal-close {
   position: absolute;
   top: 16px;
@@ -1503,7 +1402,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .sponsor-modal-close:hover {
   color: #fff;
 }
-/* Heading */
+
 .sponsor-modal-box h2 {
   font-family: 'Inter', sans-serif;
   font-size: 34px;
@@ -1517,7 +1416,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   line-height: 1.5;
   margin-bottom: 28px;
 }
-/* Fields */
+
 .form-group {
   margin-bottom: 18px;
 }
@@ -1549,12 +1448,12 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .form-group textarea:focus {
   border-color: var(--accent);
 }
-/* Tier field */
+
 #sponsorTier {
   color: var(--accent);
   font-weight: 600;
 }
-/* Send button */
+
 .sponsor-submit {
   width: 100%;
   margin-top: 8px;
@@ -1562,7 +1461,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   padding: 14px 24px;
 }
 
-/* Legacy page */
 .legacy-story{ padding: 8px 0 24px; }
 .legacy-moments{ padding: 24px 0 72px; }
 .legacy-grid{
@@ -1586,7 +1484,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .legacy-grid{ grid-template-columns: 1fr 1fr; }
 }
 
-/* Legacy page — matches provided mockup */
 .legacy-page{ padding: 56px 0 80px; }
 .legacy-hero{ text-align: center; max-width: 560px; margin: 0 auto 36px; }
 .legacy-hero h1{
@@ -1671,7 +1568,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .legacy-board{ grid-template-columns: repeat(2, 1fr); gap: 28px 20px; }
   .legacy-ph{ width: 100px; height: 100px; }
 }
-/* About page rows */
+
 .about-rows{ padding: 56px 0 72px; }
 .about-row{
   display: grid;
@@ -1716,7 +1613,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .about-row-copy p:last-child{ max-width: none; }
 }
 
-/* About page — hero + next-step split */
 .about-hero {
   position: relative;
   width: 100%;
@@ -1759,7 +1655,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   visibility: visible;
 }
 .about-hero > .about-hero-inner ~ .about-hero-inner{ display: none; }
-/* WHOLE ABOUT HERO CONTENT */
+
 .about-hero-inner {
   position: relative;
   z-index: 3;
@@ -1769,10 +1665,9 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* moves title + paragraph + button together */
   transform: translateY(-55px);
 }
-/* ABOUT ASME @ UIC */
+
 .about-hero-inner h1 {
   font-family: 'Inter', sans-serif;
   font-size: 89px;
@@ -1885,7 +1780,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   .about-split{ grid-template-columns: 1fr; }
   .about-steps{ border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 20px; }
 }
-/* Building Fast stats — staggered card layout */
+
 .about-fast {
   padding: 24px 0 72px;
 }
@@ -1897,7 +1792,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   margin-bottom: 28px;
 }
 
-/* Building Fast stats */
 .about-stats {
   display: flex;
   align-items: flex-start;
@@ -1930,10 +1824,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   justify-content: space-between;
 }
 
-
-/* stagger */
-
-/* Staircase positions */
 .about-stat:nth-child(1) {
   --y: 0px;
   background: #ff1018;
@@ -1997,8 +1887,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   animation-delay: 0.46s;
 }
 
-/* numbers */
-
 .about-stat b {
   font-family: 'Inter', sans-serif;
   font-size: 76px;
@@ -2010,9 +1898,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 .about-stat:nth-child(3) b {
   color: #2b2b2b;
 }
-
-
-/* labels */
 
 .about-stat span {
   font-family: 'Inter', sans-serif;
@@ -2044,7 +1929,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
     font-size: clamp(32px, 11vw, 46px);
   }
 }
-/* Keep CTA below staggered cards */
+
 .about-fast > .container > .center {
   margin-top: 165px !important;
   position: relative;
@@ -2365,7 +2250,6 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
 
 .media:nth-child(4) { grid-column: 1; }
 
-/* Hero navbar positioning */
 .hero-v2 .site-nav .container {
   width: 100%;
   max-width: 1500px;
@@ -2393,12 +2277,11 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   justify-self: end;
 }
 
-/* Top navbar logo */
 .hero-v2 .brand-logo {
   width: 100px;
   height: auto;
 }
-/* Top navbar Join ASME button */
+
 .hero-v2 .nav-actions .btn-sm {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
@@ -2406,7 +2289,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
   padding: 13px 28px;
   border-radius: 8px;
 }
-/* ALL ASME LOGOS — RED */
+
 .brand-logo,
 .brand img,
 .footer-logo img {
@@ -2420,7 +2303,7 @@ footer{ border-top:1px solid var(--border); padding: 56px 0 34px; margin-top:0; 
     brightness(105%)
     contrast(105%);
 }
-/* ---------- Page transition ---------- */
+
 body.page-transitioning::before{
   content:"";
   position:fixed;
@@ -2438,7 +2321,6 @@ body.page-transitioning::before{
   body.page-transitioning::before{ animation:none; opacity:0; }
 }
 
-/* ---------- Ambient red lighting on dark pages ---------- */
 body::after{
   content:"";
   position:fixed;
@@ -2530,10 +2412,7 @@ body::after{
     animation: none;
   }
 }
-/* =========================================
-   HOME + ABOUT + SPONSERS — SAME NAVBAR
-   ========================================= */
-/* navbar inner layout */
+
 .hero-v2 .site-nav .container,
 .about-nav .container,
 .sponsors-nav .container{
@@ -2546,13 +2425,13 @@ body::after{
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
 }
-/* logo */
+
 .hero-v2 .brand,
 .about-nav .brand,
 .sponsors-nav .brand{
   justify-self: start;
 }
-/* middle links */
+
 .hero-v2 .nav-links,
 .about-nav .nav-links,
 .sponsors-nav .nav-links{
@@ -2563,20 +2442,20 @@ body::after{
   align-items: center;
   gap: 40px;
 }
-/* right button */
+
 .hero-v2 .nav-actions,
 .about-nav .nav-actions,
 .sponsors-nav .nav-actions {
   justify-self: end;
   margin: 0;
 }
-/* logo size */
+
 .hero-v2 .brand-logo,
 .about-nav .brand-logo, .sponsors-nav .brand-logo{
   width: 100px;
   height: auto;
 }
-/* Join ASME button */
+
 .hero-v2 .nav-actions .btn-sm,
 .about-nav .nav-actions .btn-sm,
 .sponsors-nav .nav-actions .btn-sm {
@@ -2685,7 +2564,6 @@ button:focus-visible {
 html {
   scroll-behavior: smooth;
 }
-/* Industry logos — desktop/tablet */
 .logo-set img {
   width: auto;
   height: auto;
@@ -2695,25 +2573,15 @@ html {
 
   object-fit: contain;
 }
-
 .logo-set {
   gap: 40px;
   padding-right: 40px;
 }
-/*
-   FINAL MOBILE NAVBAR
-   Keep this at the bottom of style.css
-   ========================================= */
-   /* =========================================
-   TABLET — 721px to 980px
-   ========================================= */
 
 @media (min-width: 721px) and (max-width: 980px) {
-
-  /* =========================================
+  /* ========================================
      TABLET NAVBAR
      ========================================= */
-     /* Industry logos — mobile */
 .logo-set img {
   width: auto;
   height: auto;
@@ -2737,7 +2605,6 @@ html {
   .hero-v2 .site-nav .container {
     height: 76px;
     padding: 0 28px;
-
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
@@ -2747,17 +2614,14 @@ html {
     width: 90px;
   }
 
-  /* Hide desktop Join button */
   .hero-v2 .nav-actions .btn-primary {
     display: none;
   }
 
-  /* Show hamburger */
   .hero-v2 .nav-toggle {
     display: flex;
   }
 
-  /* Tablet dropdown */
   .hero-v2 .nav-links {
     position: fixed;
 
@@ -2795,7 +2659,6 @@ html {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-
     transform: translateY(0);
   }
 
@@ -2806,27 +2669,18 @@ html {
   .hero-v2 .nav-links a {
     display: block;
     width: 100%;
-
     padding: 14px 12px;
-
     font-size: 16px;
-
     border-bottom: 1px solid rgba(255,255,255,.08);
   }
-
-
   /* =========================================
      HOME HERO — TABLET
      ========================================= */
-
-     /* Industry logos — mobile */
 .logo-set img {
   width: auto;
   height: auto;
-
   max-width: 120px;
   max-height: 65px;
-
   object-fit: contain;
 }
 
@@ -2839,22 +2693,18 @@ html {
   width: 100%;
   max-width: 100%;
 }
-
   .hero-v2 {
     aspect-ratio: auto;
     min-height: 760px;
-
     overflow: visible;
   }
 
   .hero-v2-bg {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
     object-position: center;
   }
-
   .hero-v2-inner {
     padding: 140px 40px 60px;
   }
@@ -2862,33 +2712,24 @@ html {
   .hero-v2-inner .eyebrow {
     font-size: 13px;
     padding: 7px 24px;
-
     margin: 0 auto;
-
     transform: none;
   }
 
   .hero-v2-inner h1 {
     font-size: 58px;
     line-height: 1.02;
-
     max-width: 680px;
-
     margin: 28px auto 0;
-
     top: 0;
-
     letter-spacing: -.03em;
   }
 
   .hero-v2-inner p.lead {
     max-width: 600px;
-
     margin: 28px auto 0;
-
     font-size: 18px;
     line-height: 1.5;
-
     transform: none;
   }
 
@@ -2911,7 +2752,6 @@ html {
   overflow: visible;
 }
 
-  /* Navbar itself */
   .site-nav,
   .board-page .site-nav,
   .events-page .site-nav,
@@ -2921,8 +2761,6 @@ html {
     z-index: 1000;
   }
 
-
-  /* Navbar inner layout */
   .hero-v2 .site-nav .container,
   .about-nav .container,
   .sponsors-nav .container,
@@ -2931,16 +2769,12 @@ html {
   .legacy-body .site-nav .container {
     width: 100%;
     height: 76px;
-
     padding: 0 18px;
-
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
   }
 
-
-  /* Logo */
   .hero-v2 .brand-logo,
   .about-nav .brand-logo,
   .sponsors-nav .brand-logo,
@@ -2951,14 +2785,10 @@ html {
     height: auto;
   }
 
-
-  /* Hide Join ASME desktop button */
   .nav-actions .btn-primary {
     display: none;
   }
 
-
-  /* Show hamburger */
   .nav-toggle {
     display: flex;
   }
@@ -3007,8 +2837,6 @@ html {
       transform .25s ease,
       visibility .25s ease;
   }
-
-
   .hero-v2 .nav-links.open,
   .about-nav .nav-links.open,
   .sponsors-nav .nav-links.open,
@@ -3022,8 +2850,6 @@ html {
     visibility: visible;
     pointer-events: auto;
   }
-
-  /* Each row */
   .nav-links li {
     width: 100%;
   }
@@ -3055,8 +2881,6 @@ html {
   /* =========================================
    HOME HERO — MOBILE
    ========================================= */
-   
-
 .hero-v2 {
   aspect-ratio: auto;
   min-height: 720px;
@@ -3069,117 +2893,86 @@ html {
   object-position: center;
   top: -100px;
 }
-/* Whole hero content */
+
 .hero-v2-inner {
   padding: 115px 18px 40px;
 }
 
-
-/* All majors welcome */
 .hero-v2-inner .eyebrow {
   font-size: 12px;
   padding: 7px 20px;
   margin: 0 auto;
 }
 
-
-/* Main heading */
 .hero-v2-inner h1 {
   font-size: 46px;
   line-height: 1.02;
-
   max-width: 100%;
-
   margin: 28px auto 0;
-
   letter-spacing: -0.03em;
-
   overflow-wrap: normal;
   word-break: normal;
 }
 
-
-/* Description */
 .hero-v2-inner p.lead {
   font-size: 16px;
   line-height: 1.5;
-
   max-width: 340px;
-
   margin: 26px auto 0;
-
   transform: none;
 }
 
-
-/* Join button area */
 .hero-v2-inner .hero-cta {
   margin-top: 28px;
   transform: none;
 }
 
-
-/* Join button */
 .hero-v2-inner .hero-cta .btn {
   min-width: 0;
   width: 100%;
   max-width: 320px;
-
   font-size: 18px;
-
   padding: 14px 24px;
 }
 /* =========================================
    MOBILE PROJECT TEAM TRANSITION
    ========================================= */
-
 .teams-viewport {
   transition:
     opacity 0.18s ease,
     transform 0.18s ease;
 }
-
 .teams-viewport.team-switching {
   opacity: 0;
   transform: translateY(6px);
 }
 
-/* Don't slide through every card on mobile */
 .teams-track {
   transition: none;
 }
-
-/* Mobile */
-
   .calendar-desktop {
     display: none;
   }
-
   .calendar-mobile {
     display: block;
   }
-
   .calendar-mobile {
     height: 420px;
   }
-
 .calendar-mobile iframe {
     width: 100%;
     height: 100%;
-
     pointer-events: auto;
     touch-action: auto;
   }
   /* =========================================
    ABOUT HERO — MOBILE
    ========================================= */
-
 .about-hero {
   aspect-ratio: auto;
   min-height: 620px;
 }
 
-/* Background image */
 .about-hero-bg {
   width: 100%;
   height: 100%;
@@ -3187,79 +2980,57 @@ html {
   object-position: center;
 }
 
-/* Whole About hero content */
 .about-hero-inner {
   max-width: 100%;
   padding: 80px 20px 40px;
   transform: none;
 }
 
-/* ABOUT ASME @ UIC */
 .about-hero-inner h1 {
   font-size: 44px;
   line-height: 1.02;
   letter-spacing: -0.03em;
-
   white-space: normal;
-
   max-width: 350px;
   margin: 0 auto 24px;
 }
 
-/* Description */
 .about-hero-inner p {
   font-size: 18px;
   line-height: 1.5;
-
   max-width: 330px;
-
   margin: 0 auto 28px;
-
   transform: none;
 }
 
-/* Join ASME button */
 .about-hero-inner .btn {
   min-width: 0;
   width: 100%;
   max-width: 310px;
-
   padding: 14px 24px;
-
   font-size: 18px;
-
   transform: none;
 }
 /* =========================================
    ABOUT STATS — MOBILE
    ========================================= */
-
 .about-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
   gap: 14px;
-
   width: 100%;
   max-width: 340px;
-
   margin: 0 auto;
 }
 
-
-/* Each stat card */
 .about-stat {
   width: 100%;
   height: 155px;
   min-height: 155px;
-
   padding: 18px 14px;
-
   flex: none;
 }
 
-
-/* Remove desktop staircase on mobile */
 .about-stat:nth-child(1),
 .about-stat:nth-child(2),
 .about-stat:nth-child(3),
@@ -3267,40 +3038,28 @@ html {
   --y: 0px;
 }
 
-
-/* Numbers */
 .about-stat b {
   font-size: 48px;
 }
 
-
-/* 130K+ needs slightly smaller text */
 .about-stat:nth-child(4) b {
   font-size: 42px;
 }
 
-
-/* Labels */
 .about-stat span {
   font-size: 13px;
 }
 
-
-/* Button no longer needs huge staircase spacing */
 .about-fast > .container > .center {
   margin-top: 32px !important;
 }
 /* =========================================
    BOARD PAGE — MOBILE
    ========================================= */
-
-/* Stop horizontal overflow */
 .board-page {
   overflow-x: hidden;
 }
 
-
-/* Board hero */
 .board-page .board-hero {
   min-height: auto;
   padding: 42px 18px 34px;
@@ -3315,31 +3074,22 @@ html {
 .board-page .board-hero p {
   width: 100%;
   max-width: 340px;
-
   margin: 0 auto 24px;
-
   font-size: 15px;
   line-height: 1.5;
-
   padding: 0;
 }
 
-
-/* Divider */
 .board-page .gray-line {
   width: calc(100% - 36px);
   max-width: 100%;
   margin: 24px auto 0;
 }
 
-
-/* Board section */
 .board-members {
   padding: 36px 18px 48px;
 }
 
-
-/* ALL Board section titles */
 .board-members h2,
 .engagement-title,
 .finance-title,
@@ -3349,19 +3099,13 @@ html {
 .team-lead-title {
   width: 100%;
   max-width: 100%;
-
   margin: 0 0 28px;
-
   font-size: 36px;
   line-height: 1.1;
-
   text-align: left;
-
   transform: none;
 }
 
-
-/* All member grids */
 .administration-grid,
 .engagement-grid,
 .finance-grid,
@@ -3371,17 +3115,12 @@ html {
 .team-lead-grid {
   width: 100%;
   max-width: 100%;
-
   margin: 0;
-
   display: grid;
   grid-template-columns: 1fr;
-
   gap: 42px;
 }
 
-
-/* Individual board member card */
 .administration,
 .engagement,
 .finance,
@@ -3393,8 +3132,6 @@ html {
   min-width: 0;
 }
 
-
-/* Headshots */
 .admin-person,
 .engagement-person,
 .finance-person,
@@ -3404,12 +3141,9 @@ html {
 .team-lead-person {
   width: 150px;
   height: 150px;
-
   margin-bottom: 14px;
 }
 
-
-/* Names */
 .administration h3,
 .engagement h3,
 .finance h3,
@@ -3420,15 +3154,11 @@ html {
   font-size: 18px;
 }
 
-
-/* Bios */
 .administration .bio {
   max-width: 330px;
-
   font-size: 14px;
   line-height: 1.55;
 }
-/* Center Board sections after Administration */
 
 .engagement-title,
 .finance-title,
@@ -3438,13 +3168,10 @@ html {
 .team-lead-title {
   width: 100%;
   max-width: 320px;
-
   margin: 0 auto 28px;
-
   transform: none;
   text-align: left;
 }
-
 
 .engagement-grid,
 .finance-grid,
@@ -3454,16 +3181,13 @@ html {
 .team-lead-grid {
   width: 100%;
   max-width: 320px;
-
   margin: 0 auto;
-
   grid-template-columns: 1fr;
   gap: 42px;
 }
 /* =========================================
    EVENTS HERO IMAGE — MOBILE
    ========================================= */
-
 .events-hero .container {
   padding-left: 12px;
   padding-right: 12px;
@@ -3482,117 +3206,80 @@ html {
 /* =========================================
    SPONSORS PAGE — MOBILE
    ========================================= */
-
-/* Hero */
 .sponsors-page-head > .container {
   aspect-ratio: auto;
   height: 720px;
   min-height: 720px;
 }
 
-
-/* Hero background */
 .sponsors-page-head-bg {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: 45% center;
 }
 
-
-/* Hero text group */
 .sponsors-page-tophalf {
   top: 34%;
   left: 50%;
-
   width: 100%;
   max-width: 350px;
-
   padding: 0 18px;
-
   transform: translate(-50%, -50%);
 }
 
-
-/* Main title */
 .sponsors-page-tophalf h1 {
   font-size: 40px;
   line-height: 1.05;
 }
 
-
-
-/* Description */
 .sponsors-page-tophalf p {
   max-width: 310px;
-
   margin: 20px auto 0;
-
   font-size: 15px;
   line-height: 1.5;
-
   transform: none;
 }
 
-
-/* Stats bar */
 .sponsors-page-head .stats-bar {
   left: 50%;
   bottom: 30px;
-
   width: calc(100% - 40px);
   max-width: 340px;
-
   transform: translateX(-50%);
 }
 
-/* 2 x 2 mobile stats */
 .sponsors-page-head .stats-bar > .container {
   grid-template-columns: repeat(2, 1fr);
 }
 
-
-/* Sponsor content spacing */
 .sponsors-page {
   padding: 48px 18px 64px;
 }
 
-
-/* Why Sponsor heading */
 .sponsor-benefits > h2 {
   font-size: 34px;
   line-height: 1.1;
 }
 
-
-/* Why Sponsor description */
 .sponsor-benefits > p {
   font-size: 14px;
   max-width: 330px;
-
   margin: 4px auto 18px;
 }
 
-
-/* Cards */
 .sponsor-benefits,
 .sponsor-tiers {
   width: 100%;
   max-width: 340px;
-
   margin-left: auto;
   margin-right: auto;
-
   grid-template-columns: 1fr;
 }
 
-
-/* Sponsorship tier heading */
 .sponsor-tiers-head {
   max-width: 340px;
 }
-
 .sponsor-tiers-head h2 {
   font-size: 36px;
 }
@@ -3602,23 +3289,18 @@ html {
 .logo-set img {
   width: auto;
   height: auto;
-
   max-width: 120px;
   max-height: 65px;
-
   object-fit: contain;
 }
-
 .logo-set {
   gap: 28px;
   padding-right: 28px;
 }
-
 .logo-marquee {
   width: 100%;
   max-width: 100%;
 }
-
   .board-members h2,
   .engagement-title,
   .finance-title,
@@ -3626,15 +3308,12 @@ html {
   .technical-title,
   .outreach-title,
   .team-lead-title {
-    width: 100%;
+  width: 100%;
   max-width: 280px;
-
   margin: 0 auto 24px;
-
   text-align: left;
   transform: none;
   }
-
   .administration-grid,
   .engagement-grid,
   .finance-grid,
@@ -3646,7 +3325,6 @@ html {
     margin-left: auto;
     margin-right: auto;
   }
-
   .administration,
   .engagement,
   .finance,
@@ -3671,14 +3349,10 @@ html {
   .team-lead-title {
     width: 100%;
     max-width: 240px;
-
     margin: 0 auto 24px;
-
     text-align: left;
     transform: none;
   }
-
-
   .administration-grid,
   .engagement-grid,
   .finance-grid,
@@ -3688,14 +3362,10 @@ html {
   .team-lead-grid {
     width: 100%;
     max-width: 240px;
-
     margin-left: auto;
     margin-right: auto;
-
     justify-items: start;
   }
-
-
   .administration,
   .engagement,
   .finance,
@@ -3705,7 +3375,6 @@ html {
   .team-lead {
     width: 100%;
     max-width: 240px;
-
     margin-left: auto;
     margin-right: auto;
   }
@@ -3716,23 +3385,18 @@ html {
 .logo-set img {
   width: auto;
   height: auto;
-
   max-width: 120px;
   max-height: 65px;
-
   object-fit: contain;
 }
-
 .logo-set {
   gap: 28px;
   padding-right: 28px;
 }
-
 .logo-marquee {
   width: 100%;
   max-width: 100%;
 }
-
   .engagement-title,
   .finance-title,
   .media-title,
@@ -3745,7 +3409,6 @@ html {
     text-align: left;
     transform: none;
   }
-
   .engagement-grid,
   .finance-grid,
   .media-grid,
@@ -3759,7 +3422,6 @@ html {
     justify-items: start;
     gap: 42px;
   }
-
   .engagement,
   .finance,
   .media,
@@ -3775,10 +3437,7 @@ html {
 /* =========================================
    SHORT DESKTOP / MACBOOK PRO
    ========================================= */
-
    @media (min-width: 981px) and (max-height: 1100px) {
-
-     /* Smaller desktop navbar */
      .hero-v2 .site-nav {
        height: 105px;
      }
@@ -3800,98 +3459,62 @@ html {
      .hero-v2 .nav-links a {
        font-size: 16px;
      }
-   
      .hero-v2 .nav-actions .btn-sm {
        padding: 13px 28px;
        font-size: 16px;
      }
-   
-   
-     /* Whole hero */
      .hero-v2 {
        aspect-ratio: auto;
        min-height: 100vh;
      }
    
-   
-     /* Bring content down below navbar */
      .hero-v2-inner {
        padding: 135px 30px 0;
      }
-   
-   
-     /* ALL MAJORS WELCOME */
      .hero-v2-inner .eyebrow {
        font-size: 13px;
        padding: 7px 26px;
        transform: none;
      }
    
-   
-     /* Main headline */
      .hero-v2-inner h1 {
        font-size: 64px;
        line-height: 1.02;
-   
        max-width: 1100px;
-   
        margin: 24px auto 0;
      }
    
-   
-     /* Description */
      .hero-v2-inner p.lead {
        font-size: 18px;
        line-height: 1.5;
-   
        max-width: 760px;
-   
        margin: 28px auto 0;
-   
        transform: none;
      }
-   
-   
-     /* Join button */
      .hero-v2-inner .hero-cta {
        margin-top: 32px;
        transform: none;
      }
-   
      .hero-v2-inner .hero-cta .btn {
        min-width: 320px;
-   
        padding: 15px 32px;
-   
        font-size: 20px;
      }
    
-   
-     /* Stats */
      .stats-bar {
        width: min(800px, calc(100% - 60px));
-   
        margin: 45px auto 30px;
-   
        border-radius: 12px;
      }
-   
      .stats-bar .stat {
        min-height: 100px;
      }
-   
      .stats-bar .stat b {
        font-size: 30px;
      }
-   
      .stats-bar .stat span {
        font-size: 14px;
      }
-     /* =========================================
-   ABOUT — SHORT DESKTOP / MACBOOK
-   ========================================= */
-
-/* Navbar */
 .about-nav {
      height: 105px;
    }
@@ -3902,160 +3525,108 @@ html {
      padding: 0 32px;
    }
    
-   
-   /* Hero fills remaining screen */
    .about-hero {
      aspect-ratio: auto;
      height: calc(100vh - 105px);
      min-height: 650px;
    }
    
-   
-   /* Entire content group */
    .about-hero-inner {
      max-width: 1100px;
      padding: 0 30px;
-   
      transform: translateY(-10px);
    }
    
-   
-   /* ABOUT ASME @ UIC */
    .about-hero-inner h1 {
      font-size: 70px;
      line-height: 1;
-   
      margin: 0 0 34px;
-   
      white-space: nowrap;
    }
    
-   
-   /* Description */
    .about-hero-inner p {
      max-width: 780px;
-   
      margin: 0 auto 38px;
-   
      font-size: 21px;
      line-height: 1.5;
-   
      transform: none;
    }
    
-   
-   /* Join button */
    .about-hero-inner .btn {
      min-width: 340px;
-   
      padding: 15px 34px;
-   
      font-size: 20px;
-   
      transform: none;
    }
-   /* Board titles — short desktop only */
 .media-title,
 .technical-title,
 .outreach-title {
   width: 100%;
   max-width: 1000px;
-
   margin: 0 auto 24px;
-
   text-align: left;
   transform: none;
 }
 /* =========================================
    SPONSORS — SHORT DESKTOP / MACBOOK
    ========================================= */
-
-/* NAVBAR */
 .sponsors-nav {
      height: 100px;
    }
-   
    .sponsors-nav .container {
      width: 100%;
      max-width: 1280px;
      height: 100px;
-   
      margin: 0 auto;
      padding: 0 28px;
-   
      display: grid;
      grid-template-columns: 1fr auto 1fr;
      align-items: center;
    }
-   
    .sponsors-nav .brand {
      justify-self: start;
    }
-   
    .sponsors-nav .brand-logo {
      width: 95px;
      height: auto;
    }
-   
    .sponsors-nav .nav-links {
      justify-self: center;
      gap: 34px;
    }
-   
    .sponsors-nav .nav-links a {
      font-size: 16px;
    }
-   
    .sponsors-nav .nav-actions {
      justify-self: end;
    }
-   
    .sponsors-nav .nav-actions .btn-sm {
      padding: 13px 28px;
      font-size: 16px;
    }
-   
-   
-   /* HERO SIZE */
    .sponsors-page-head > .container {
      aspect-ratio: auto;
-   
      height: calc(100vh - 100px);
      min-height: 720px;
      max-height: 850px;
    }
-   
-   
-   /* HERO IMAGE */
    .sponsors-page-head-bg {
      object-position: center center;
    }
-   
-   
-   /* TITLE + DESCRIPTION GROUP */
    .sponsors-page-tophalf {
      top: 40%;
      left: 50%;
-   
      width: min(850px, calc(100% - 60px));
-   
      transform: translate(-50%, -50%);
    }
-   
-   
-   /* PARTNER WITH ASME @ UIC */
    .sponsors-page-tophalf h1 {
      font-size: 70px;
      line-height: 0.98;
      letter-spacing: -0.02em;
    }
-
    .sponsors-page-tophalf h1 span {
      display: block;
    }
-   
-   
-   /* DESCRIPTION */
    .sponsors-page-tophalf p {
      max-width: 720px;
    
@@ -4068,26 +3639,18 @@ html {
    
      transform: none;
    }
-   
-   
-   /* STATS BAR */
    .sponsors-page-head .stats-bar {
      left: 50%;
      bottom: 130px;
-   
      width: min(800px, calc(100% - 60px));
-   
      transform: translateX(-50%);
    }
-   
    .sponsors-page-head .stat {
      min-height: 105px;
    }
-   
    .sponsors-page-head .stat b {
      font-size: 30px;
    }
-   
    .sponsors-page-head .stat span {
      font-size: 14px;
    }

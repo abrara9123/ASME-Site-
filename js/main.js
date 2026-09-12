@@ -65,17 +65,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  /* ---- Sticky nav border/background intensifies on scroll ---- */
-  const nav = document.querySelector('.site-nav');
-  if (nav) {
-    const onScroll = () => {
-      const inHero = nav.closest('.hero-v2');
-      if (window.scrollY > 12) nav.style.background = 'rgba(17,17,19,0.92)';
-      else nav.style.background = inHero ? 'transparent' : 'rgba(17,17,19,0.72)';
-    };
-    document.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
+ /* ---- Sticky nav border/background intensifies on scroll ---- */
+const nav = document.querySelector('.site-nav');
+if (nav) {
+  const inHero = Boolean(nav.closest('.hero-v2'));
+  let lastScrolled = null;
+  const onScroll = () => {
+    const scrolled = window.scrollY > 12;
+    if (scrolled === lastScrolled) return;
+    lastScrolled = scrolled;
+    nav.style.background = scrolled
+      ? 'rgba(17,17,19,0.92)'
+      : inHero
+        ? 'transparent'
+        : 'rgba(17,17,19,0.72)';
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
 
   /* ---- Scroll reveal ---- */
   const revealEls = document.querySelectorAll('.reveal');
